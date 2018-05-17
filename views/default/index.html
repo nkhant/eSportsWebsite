@@ -66,37 +66,47 @@
 
 
 
-{{if not checklists:}}
-    <p>You don't have any checklist.  Press on the Add button above to create one.</p>
-{{pass}}
+
 
 
 {{else:}}
+    <div class="main_content container">
+        <div class="main_info">
+            <h2>TEST, this should be scrollable, showing the featured articles</h2>
+        </div>
 
-    <h1 class="main_title">Welcome!</h1>
+        <div class="twothirds">
+            <h3>this is two thirds,showing the latest articles</h3>
 
-    <p class="explanation">This site will help you organize your life by storing your checklists.
-        Please log in to use it.</p>
+            <div class="latest_articles twothirds">
+                Latest Articles
+            </div>
+        </div>
 
-    <div class="login_button">
-        <a href="{{=URL('default', 'user')}}" class="btn">Login</a>
+        <div class="third">
+            <h3>this is one third, ads go here, and lesser articles will show here</h3>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
-
-    <h3>Public Memos</h3>
-    {{for row in rows:}}
-        <div class="memo">
-            <div class="memo_text">
-              <div class="memo_title">{{=row.title}}</div>
-              <div class="memo_content">{{=row.memo}}</div>
-            </div>
-
-            <div class="button_list">
-                <div class="buttons">
-                    <i class="fa fa-users"style="color:grey"></i>
-                </div>
-            </div>
-         </div>
-    {{pass}}
 
 {{pass}}
 
