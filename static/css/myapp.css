@@ -55,3 +55,21 @@ div.main_info{
   padding-left: 5px;
 
 }
+
+.sidebar_pad{
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.img_size{
+    width: 30px;
+    height: 30px;
+
+}
+
+.sideview{
+    display:inline-block;
+}
+.content_pad_left{
+    padding-left: 20px;
+}
