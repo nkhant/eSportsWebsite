@@ -3,10 +3,19 @@
 {{block head}}
 {{end}}
 
+
+ <style>
+#lol_background {
+    background-image: url('{{=URL('static', 'images', args="loledit.png")}}');
+    background-size: contain;
+
+}
+</style>
+
 <div class="main_content">
   <!-- Here goes your main HTML code. -->
 
-    <div class="main_content container">
+  <!--  <div class="main_content container">
         <div class="main_info">
             <h2>TEST, this should be scrollable, showing the featured articles</h2>
         </div>
@@ -26,7 +35,36 @@
 
 
 
-    </div>
+    </div> -->
+
+        <div class="image_container">
+          <!-- Put here the code to display the images -->
+          <ul class="center_articles container">
+
+            <li  id="lol_background"class="display_article  btn lifted padded quarter ">
+                <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
+               this is a sentence  this is a sentence  this is a sentence  this is a sentence  this is a sentence  this is a sentence  this is a sentence  this is a sentence
+                 this is a sentence this is a sentence this is a sentence this is a sentence this is a sentence
+            </li>
+
+            <li  class="display_article btn lifted padded quarter">
+               this is a sentence  this is a sentence  this is a sentence  this is a sentence  this is a sentence  this is a sentence  this is a sentence  this is a sentence
+                 this is a sentence this is a sentence this is a sentence this is a sentence this is a sentence
+            </li>
+               <li  class="display_article lifted padded quarter">
+               sdfgh
+            </li>
+               <li  class=" display_article lifted padded quarter">
+               sdfgh
+            </li>
+               <li  class=" display_article lifted padded quarter">
+               sdfgh
+            </li>
+               <li  class=" display_article lifted padded quarter">
+               sdfgh
+            </li>
+          </ul>
+        </div>
 
 
 </div>

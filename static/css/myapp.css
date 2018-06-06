@@ -85,3 +85,23 @@ div.main_info{
 .tester{
     opacity: 0.7;
 }
+
+
+.my_padded {
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+
+}
+
+.display_article{
+    margin-left: 20px !important;
+    background-color: turquoise !important;
+    color: black !important;
+    font-size: 1em !important;
+}
+
+.center_articles{
+    padding-left:15% !important;
+}
