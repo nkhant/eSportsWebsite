@@ -137,3 +137,7 @@ def call():
     return service()
 
 
+
+def league():
+    return dict(message="Hello World")
+

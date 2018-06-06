@@ -5,67 +5,7 @@
 
 <div class="main_content">
   <!-- Here goes your main HTML code. -->
- {{if auth.user is not None:}}
-      <div class="add_btn">
-        <a class="btn red rounded" href="{{=URL('default', 'add')}}"><i class="fa fa-plus"></i> Add</a>
-      </div>
 
-      <h3>My Memos</h3>
-      {{for cl in checklists:}}
-            {{if cl.user_email == auth.user.email:}}
-              <div class="memo">
-                <div class="memo_text">
-                  <div class="memo_title">{{=cl.title}}</div>
-                  <div class="memo_content">{{=cl.memo}}</div>
-                </div>
-              <div class="button_list ">
-                <div class="buttons">
-                  <a class=" btn rounded red" href="{{=URL('default', 'edit', args=[cl.id])}}">
-                    <i class="fa fa-edit fa-lg"></i>
-                  </a>
-                  <a class="btn rounded red" href="{{=URL('default', 'delete', args=[cl.id], user_signature=True)}}">
-                    <i class="fa fa-trash fa-lg"></i>
-                  </a>
-
-                  {{if cl.is_public == True: }}
-                  <a class="btn rounded red" href="{{=URL('default', 'toggle_public', args=[cl.id], user_signature=True)}}">
-                    <i class="fa fa-users"></i>
-                  </a>
-                  {{pass}}
-
-                  {{if cl.is_public == False: }}
-                  <a class="btn rounded red" href="{{=URL('default', 'toggle_public', args=[cl.id], user_signature=True)}}">
-                    <i class="fa fa-user"></i>
-                  </a>
-                  {{pass}}
-                </div>
-               </div>
-              </div>
-            {{pass}}
-      {{pass}}
-
-      <h3>Public Memos</h3>
-      {{for pcl in pchecklists:}}
-          {{if pcl.user_email != auth.user.email:}}
-                <div class="memo">
-                    <div class="memo_text">
-                      <div class="memo_title">{{=pcl.title}}</div>
-                      <div class="memo_content">{{=pcl.memo}}</div>
-                    </div>
-                    <div class="button_list">
-                        <div class="buttons">
-                            <i class="fa fa-users"style="color:grey"></i>
-                        </div>
-                    </div>
-              </div>
-          {{pass}}
-      {{pass}}
-
-
-
-
-
-{{else:}}
     <div class="main_content container">
         <div class="main_info">
             <h2>TEST, this should be scrollable, showing the featured articles</h2>
@@ -86,24 +26,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
-{{pass}}
 
 </div>

@@ -73,3 +73,15 @@ div.main_info{
 .content_pad_left{
     padding-left: 20px;
 }
+.full_div{
+    height: 100%;
+    width: 100%;
+}
+
+.content_pad_left_more{
+    margin-left: 50px;
+}
+
+.tester{
+    opacity: 0.7;
+}

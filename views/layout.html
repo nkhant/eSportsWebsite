@@ -23,10 +23,10 @@
       <div class="container middle max900">
         <div class="fill middle">
           <div class="burger accordion">
-              <h3 class="center" >OPeSports</h3>
+              <h3 class="center"> <a href="{{=URL('default', 'index')}}"> <span style="color:black;">OPeSports</span></a></h3>
 
 
-            <ul class="olive rounded menu right">
+            <ul class="btn olive rounded menu right">
               <li>
                 {{=auth.navbar(mode='dropdown')}}
               </li>
@@ -35,12 +35,12 @@
         </div>
       </div>
       <div class="sidebar black">
-
           <ul >
-              <li class="spaced"> <img class="img_size" src="{{=URL('static', 'images', args="lol.png")}}" /> <a href="{{=URL('default', 'delete')}}"> League</a></li>
-              <li class="spaced"> <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" /><a href="{{=URL('default', 'delete')}}"> StarCraft</a></li>
-              <li class="spaced"> <img class="img_size" src="{{=URL('static', 'images', args="smash.png")}}" /> <a href="{{=URL('default', 'delete')}}"> Smash</a></li>
-              <li class="spaced"> <img class="img_size" src="{{=URL('static', 'images', args="streetfighter.png")}}" /> <a href="{{=URL('default', 'delete')}}"> Street Fighter</a></li>
+              <li class="spaced"> <img class="img_size" src="{{=URL('static', 'images', args="lol.png")}}" />
+                  <a href="{{=URL('default', 'league', user_signature=True)}}"> League</a></li>
+              <li class="spaced"> <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" /><a href="{{=URL('default', 'StarCraft')}}"> StarCraft</a></li>
+              <li class="spaced"> <img class="img_size" src="{{=URL('static', 'images', args="smash.png")}}" /> <a href="{{=URL('default', 'Smash')}}"> Smash</a></li>
+              <li class="spaced"> <img class="img_size" src="{{=URL('static', 'images', args="streetfighter.png")}}" /> <a href="{{=URL('default', 'StreetFighter')}}"> Street Fighter</a></li>
           </ul>
       </div>
     </header>
