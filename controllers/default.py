@@ -139,5 +139,5 @@ def call():
 
 
 def league():
-    return dict(message="Hello World")
+    return dict(message="Hello")
 
