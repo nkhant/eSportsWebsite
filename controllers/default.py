@@ -141,3 +141,5 @@ def call():
 def league():
     return dict(message="Hello")
 
+def form():
+    return dict(message="This is a form")
