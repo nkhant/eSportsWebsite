@@ -57,3 +57,6 @@ def league():
 
 def article():
     return dict(message="hello")
+
+def form():
+    return dict(message="This is a form")
