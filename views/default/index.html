@@ -1,6 +1,7 @@
 {{extend 'layout.html'}}
 
 {{block head}}
+ <script src="{{=URL('static', 'js/vue.js')}}"></script>
 {{end}}
 
 
@@ -8,45 +9,31 @@
 #lol_background {
     background-image: url('{{=URL('static', 'images', args="loledit.png")}}');
     background-size: contain;
-
 }
 </style>
 
-<div class="main_content">
+ <div id="vue-div" class="display:none">
   <!-- Here goes your main HTML code. -->
 
-    </div> -->
-      <button><a href="{{=URL('default', 'form')}}">Create an article entry</a></button>
+
+      <button><a href="{{=URL('default', 'form')}}"> Create an article entry</a></button>
 
         <div class="image_container">
           <!-- Put here the code to display the images -->
-          <ul class="center_articles container">
+          <ul  class="center_articles container">
 
-            <li  id="lol_background"class="display_article  btn lifted padded quarter ">
+            <li v-for="article in articles" id="lol_background"class="display_article  btn lifted padded quarter ">
                 <a href="{{=URL('default', 'article')}}"> Article</a>
                 <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
-               this is a sentence  this is a sentence  this is a sentence  this is a sentence  this is a sentence  this is a sentence  this is a sentence  this is a sentence
-                 this is a sentence this is a sentence this is a sentence this is a sentence this is a sentence
+                <div> Title: ${article.title} </div>
+                <div> Author: ${article.author} </div>
+                <div> Content: ${article.content} </div>
+                <div> Game: ${article.game}</div>
             </li>
 
-            <li  class="display_article btn lifted padded quarter">
-               this is a sentence  this is a sentence  this is a sentence  this is a sentence  this is a sentence  this is a sentence  this is a sentence  this is a sentence
-                 this is a sentence this is a sentence this is a sentence this is a sentence this is a sentence
-            </li>
-               <li  class="display_article lifted padded quarter">
-               sdfgh
-            </li>
-               <li  class=" display_article lifted padded quarter">
-               sdfgh
-            </li>
-               <li  class=" display_article lifted padded quarter">
-               sdfgh
-            </li>
-               <li  class=" display_article lifted padded quarter">
-               sdfgh
-            </li>
           </ul>
         </div>
 
 
 </div>
+<script src="{{=URL('static', 'js/default_index.js')}}"></script>

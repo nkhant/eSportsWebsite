@@ -13,9 +13,13 @@
     <link rel="stylesheet" href="{{=URL('static', 'font-awesome-4.6.3/css/font-awesome.min.css')}}">
     {{include "web2py_ajax.html"}}
   </head>
+  <script>
+    var get_articles_url = "{{=URL('api', 'get_articles', user_signature=True)}}";
+    var add_article_url = "{{=URL('api', 'add_article', user_signature=True)}}";
+</script>
+
 
   <body class="white">
-    <div id="vue-div"">
       {{if response.flash:}}
       <div class="w2p_flash">
         {{=response.flash}}
@@ -67,7 +71,6 @@
           </div>
         </div>
       </footer>
-    </div>
   </body>
 
   <script src="{{=URL('static','js/marked.min.js')}}"></script>
