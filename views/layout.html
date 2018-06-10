@@ -14,12 +14,12 @@
     {{include "web2py_ajax.html"}}
   </head>
   <script>
-    var get_articles_url = "{{=URL('api', 'get_articles', user_signature=True)}}";
+    var get_articles_url = "{{=URL('api', 'get_articles')}}";
     var add_article_url = "{{=URL('api', 'add_article', user_signature=True)}}";
 </script>
 
 
-  <body class="white">
+  <body class="silver">
       {{if response.flash:}}
       <div class="w2p_flash">
         {{=response.flash}}
@@ -46,11 +46,28 @@
         </div>
         <div class="sidebar black">
             <ul >
+                <li class="spaced">
+                  <a href="{{=URL('default', 'reader_dashboard')}}"> Dashboard</a>
+                </li>
+
                 <li class="spaced"> <img class="img_size" src="{{=URL('static', 'images', args="lol.png")}}" />
-                    <a href="{{=URL('default', 'league', user_signature=True)}}"> League</a></li>
-                <li class="spaced"> <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" /><a href="{{=URL('default', 'StarCraft')}}"> StarCraft</a></li>
-                <li class="spaced"> <img class="img_size" src="{{=URL('static', 'images', args="smash.png")}}" /> <a href="{{=URL('default', 'Smash')}}"> Smash</a></li>
-                <li class="spaced"> <img class="img_size" src="{{=URL('static', 'images', args="streetfighter.png")}}" /> <a href="{{=URL('default', 'StreetFighter')}}"> Street Fighter</a></li>
+                  <a href="{{=URL('default', 'league')}}"> League</a>
+                </li>
+
+                <li class="spaced">
+                  <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
+                  <a href="{{=URL('default', 'StarCraft')}}"> StarCraft</a>
+                </li>
+
+                <li class="spaced">
+                  <img class="img_size" src="{{=URL('static', 'images', args="smash.png")}}" />
+                  <a href="{{=URL('default', 'Smash')}}"> Smash</a>
+                </li>
+
+                <li class="spaced">
+                  <img class="img_size" src="{{=URL('static', 'images', args="streetfighter.png")}}" />
+                  <a href="{{=URL('default', 'StreetFighter')}}"> Street Fighter</a>
+                </li>
             </ul>
         </div>
       </header>
@@ -59,7 +76,7 @@
         {{include}}
       </main>
 
-      <footer class="white">
+      <footer class="white footer_layout">
         <div class="silver center padded social">
           <a class="fa fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u={url}"></a>
           <a class="fa fa-twitter" href="https://twitter.com/home?status={url}"></a>

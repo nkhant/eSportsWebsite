@@ -105,3 +105,7 @@ div.main_info{
 .center_articles{
     padding-left:15% !important;
 }
+
+footer.footer_layout {
+    box-shadow: 0 50vh 0 50vh white;
+}
