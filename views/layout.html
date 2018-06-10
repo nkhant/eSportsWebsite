@@ -15,31 +15,38 @@
   </head>
 
   <body class="white">
-    <div id="vue-div"">
+    <div id="vue-div">
       {{if response.flash:}}
       <div class="w2p_flash">
         {{=response.flash}}
       </div>
       {{pass}}
-      <header class="white padded">
-        <div class="container middle max900">
+      <!--main top header (The entire top portion of the website)-->
+      <!--EDITS: moved logo to the side, removed padding-->
+      <header class="white">
+        <div class="container middle max1000">
           <div class="fill middle">
             <div class="burger accordion">
-                <h3 class="center">
+
+              <!--eSports logo positioning-->
+                <h3 class="left">
                   <a href="{{=URL('default', 'index')}}">
-                    <img style="max-width: 30%" class="logo" src="{{=URL('static', 'images', args="OPeSports_Logo.png")}}"/>
+                    <img style="max-width: 25%" class="logo" src="{{=URL('static', 'images', args="OPeSports_Logo.png")}}"/>
+                    <img style="max-width: 30%" class="logo" src="{{=URL('static', 'images', args="top_bar_pattern.png")}}"/>
                   </a>
                 </h3>
 
+              <!--top bar design positioning-->
 
               <ul class="btn olive rounded menu right">
                 <li>
                   {{=auth.navbar(mode='dropdown')}}
                 </li>
               </ul>
-            </div>
+         </div>
           </div>
         </div>
+
         <div class="sidebar black">
             <ul >
                 <li class="spaced"> <img class="img_size" src="{{=URL('static', 'images', args="lol.png")}}" />
