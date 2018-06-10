@@ -66,6 +66,10 @@ def streetfighter():
     return dict(message="Hello")
 
 
+def csgo():
+    return dict(message="Hello")
+
+
 def article():
     return dict(message="hello")
 

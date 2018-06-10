@@ -4,35 +4,115 @@
 <script src="{{=URL('static', 'js/vue.js')}}"></script>
 
 {{end}}
-<div class="container">
-  <div id="vue-div" class="display:none">
-  <!-- Here goes your main HTML code. -->
 
-      <!--Only logged in users who are creators can create new articles-->
-      {{if auth.user is not None:}}
-      <div v-if="is_creator">
-        <button><a href="{{=URL('default', 'form')}}"> Create an article entry</a></button>
-      </div>
-      {{pass}}
+<style>
+#lol_background {
+  background-image: url('{{=URL('static', 'images', args="loledit.png")}}');
+  background-size: contain;
+}
+#width_mod {
+  width:80%;
+}
+</style>
 
-        <div class="image_container">
-          <!-- Put here the code to display the images -->
-          <ul  class="center_articles container">
+<div id="vue-div" class="display:none">
 
-            <li v-for="article in articles" class="display_article  btn lifted padded quarter">
-                <a href="{{=URL('default', 'article')}}">
-                  <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
-                  <!--Call add fav article inputing the article index in it-->
-                  <i v-on:click="add_fav_article(article.index)" id="favorite_button" class="fa fa-heart"></i>
-                  <div> Title: ${article.title} </div>
-                  <div> Author: ${article.author} </div>
-                  <div> Content: ${article.content} </div>
-                  <div> Game: ${article.game}</div>
-                </a>
-            </li>
-
-          </ul>
-        </div>
+  {{if auth.user is not None:}}
+  <div v-if="is_creator">
+    <button><a href="{{=URL('default', 'form')}}"> Create an article entry</a></button>
   </div>
+  {{pass}}
+
+  <div class="container_mod container">
+
+          <div class=" half_mod half ">
+            <ul class=" btn_mod btn " v-for="article in articles">
+                <li id="width_mod" class="container" >
+
+                  <div class="reduce_quart quarter" v-if="article.game == 'smash'">
+                    <img  src="{{=URL('static', 'images', args="smash.png")}}" />
+                  </div>
+
+                  <div class="reduce_quart quarter" v-if="article.game == 'league'">
+                    <img  src="{{=URL('static', 'images', args="lol.png")}}" />
+                  </div>
+
+                  <div class="reduce_quart quarter" v-if="article.game == 'starcraft'">
+                    <img  src="{{=URL('static', 'images', args="starcraft.png")}}" />
+                  </div>
+
+                  <div class="reduce_quart quarter" v-if="article.game == 'streetfighter'">
+                    <img  src="{{=URL('static', 'images', args="streetfighter.png")}}" />
+                  </div>
+
+                  <div class="reduce_quart quarter" v-if="article.game == 'csgo'">
+                    <img  src="{{=URL('static', 'images', args="csgo-icon.png")}}" />
+                  </div>
+
+                  <div class="three_margin threequarters">
+                    <i v-on:click="add_fav_article(article.index)" id="favorite_button" class="fa fa-heart"></i>
+                    <div> <h6>${article.title}</h6> </div>
+                    <div> <span class="author_font">by ${article.author}</span> </div>
+                    <div class="content_margin"> <span class="content_font">${article.content}</span> </div>
+                    <div> Game: ${article.game}</div>
+                 </div>
+
+                </li>
+            </ul>
+          </div>
+
+          <div class=" half_mod half ">
+            <ul class=" btn_mod btn " v-for="article in articles">
+                <li id="width_mod" class="container ">
+
+                  <div class="reduce_quart quarter" v-if="article.game == 'smash'">
+                    <img  src="{{=URL('static', 'images', args="smash.png")}}" />
+                  </div>
+
+                  <div class="reduce_quart quarter" v-if="article.game == 'league'">
+                    <img  src="{{=URL('static', 'images', args="lol.png")}}" />
+                  </div>
+
+                  <div class="reduce_quart quarter" v-if="article.game == 'starcraft'">
+                    <img  src="{{=URL('static', 'images', args="starcraft.png")}}" />
+                  </div>
+
+                  <div class="reduce_quart quarter" v-if="article.game == 'streetfighter'">
+                    <img  src="{{=URL('static', 'images', args="streetfighter.png")}}" />
+                  </div>
+
+                  <div class="reduce_quart quarter" v-if="article.game == 'csgo'">
+                    <img  src="{{=URL('static', 'images', args="csgo-icon.png")}}" />
+                  </div>
+
+                  <div class="three_margin threequarters">
+
+                    <i v-on:click="add_fav_article(article.index)" id="favorite_button" class="fa fa-heart"></i>
+
+                    <div>
+                      <h6>${article.title}</h6>
+                    </div>
+
+                    <div>
+                      <span class="author_font">by ${article.author}</span>
+                    </div>
+
+                    <div class="content_margin">
+                      <span class="content_font">${article.content}</span>
+                    </div>
+
+                    <div>
+                      Game: ${article.game}
+                    </div>
+
+                 </div>
+
+                </li>
+            </ul>
+          </div>
+
+  </div>
+
 </div>
+
 <script src="{{=URL('static', 'js/default_index.js')}}"></script>

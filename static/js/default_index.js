@@ -65,6 +65,10 @@ var app = function() {
             });
     }
 
+    self.test = function (content){
+        console.log(content)
+    };
+
     // Complete as needed.
     self.vue = new Vue({
         el: "#vue-div",
@@ -86,7 +90,8 @@ var app = function() {
             add_article : self.add_article,
             get_articles : self.get_articles,
             add_fav_article : self.add_fav_article,
-            get_fav_articles : self.get_fav_articles
+            get_fav_articles : self.get_fav_articles,
+            test : self.test
         }
 
     });
