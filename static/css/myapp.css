@@ -114,6 +114,9 @@ a.fa{
     padding-left:15% !important;
 }
 
+footer.footer_layout {
+    box-shadow: 0 50vh 0 50vh #4cc0a5;
+}
 
 .article_header{
 
@@ -125,7 +128,7 @@ a.fa{
 .article_title{
     background-color: #4cc0a5;
     float: left;
-    font-size: 36px;
+    font-size: 37px;
     padding-left: 5px;
 }
 .article_title_design{
@@ -166,6 +169,7 @@ a.fa{
     margin: 100px 0px 20px 0px;
     font-size: 25px;
     padding-left: 5px;
+    display:inline-block;
 
 }
 
@@ -179,3 +183,4 @@ div.more_article_content{
     color: #FFFFFF;
     padding-bottom: 40px;
 }
+

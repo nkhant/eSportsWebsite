@@ -1,13 +1,18 @@
 {{extend 'layout.html'}}
 
 {{block head}}
- <script src="{{=URL('static', 'js/vue.js')}}"></script>
-{{end}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
 
+{{end}}
 
  <style>
 #lol_background {
     background-image: url('{{=URL('static', 'images', args="loledit.png")}}');
+    background-size: contain;
+}
+
+#lol_backgrounds {
+    background-image: url('{{=URL('static', 'images', args="lol-backdrop.png")}}');
     background-size: contain;
 }
 </style>
@@ -15,25 +20,93 @@
  <div id="vue-div" class="display:none">
   <!-- Here goes your main HTML code. -->
 
+      <!--Only logged in users who are creators can create new articles-->
+     <div v-if="page === 'main_page'">
+          {{if auth.user is not None:}}
+          <div v-if="is_creator">
+            <button><a href="{{=URL('default', 'form')}}"> Create an article entry</a></button>
+          </div>
+          {{pass}}
+            <div class="image_container">
+              <!-- Put here the code to display the images -->
+              <ul  class="center_articles container">
 
-      <button><a href="{{=URL('default', 'form')}}"> Create an article entry</a></button>
+                <li  id="lol_background"class="display_article  btn lifted padded quarter ">
 
-        <div class="image_container">
-          <!-- Put here the code to display the images -->
-          <ul  class="center_articles container">
+                <li v-for="article in articles" id="lol_background"class="display_article  btn lifted padded quarter " v-on:click="redirect_to_article(article)">
+                    <a href="{{=URL('default', 'article')}}"> Article</a>
 
-            <li v-for="article in articles" id="lol_background"class="display_article  btn lifted padded quarter ">
-                <a href="{{=URL('default', 'article')}}"> Article</a>
-                <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
-                <div> Title: ${article.title} </div>
-                <div> Author: ${article.author} </div>
-                <div> Content: ${article.content} </div>
-                <div> Game: ${article.game}</div>
-            </li>
+                    <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
+                    <div> Title: ${article.title} </div>
+                    <div> Author: ${article.author} </div>
+                    <div> Content: ${article.content} </div>
+                    <div> Game: ${article.game}</div>
+                </li>
 
-          </ul>
+              </ul>
+            </div>
+     </div>
+     <div v-if="page === 'display_article'">
+        <div class="full_div " id="lol_backgrounds">
+            <div v-for="article in articles">
+                <div v-if="article.id == article_displayed.id">
+                    <div class="article_build container">
+                        <div class="article twothirds compressible">
+                            <div class="article_header compressible">
+                                <span class="article_title "> ${article.title} </span>
+                                <img class="article_title_design " src={{=URL('static', 'images', args="header_pattern.png")}}>
+                                <span class="article_date "> ${article.created_on}</span>
+                            </div>
+                            <div class="article_body">
+                                <div v-if="article.game == 'league'" class="article_img ">
+                                    <img src={{=URL('static', 'images', args="lol.png")}} height="400" width="600">
+                                </div>
+                                <div v-if="article.game == 'csgo'" class="article_img ">
+                                    <img src={{=URL('static', 'images', args="lol.png")}} height="400" width="600">
+                                </div>
+                                <div v-if="article.game == 'smash'" class="article_img ">
+                                    <img src={{=URL('static', 'images', args="smash.png")}} height="400" width="600">
+                                </div>
+                                <div v-if="article.game == 'starcraft'" class="article_img ">
+                                    <img src={{=URL('static', 'images', args="starcraft.png")}} height="400" width="600">
+                                </div>
+                                <div v-if="article.game == 'streetfighter'" class="article_img ">
+                                    <img src={{=URL('static', 'images', args="streetfighter.png")}} height="400" width="600">
+                                </div>
+                                <div class="article_author">by ${article.author}</div>
+                                <div class="article_content ">${article.content}</div>
+                            </div>
+                        </div>
+                        <div class="more_articles quarter compressible">
+                            <div v-for="article in articles" >
+                                <div v-if="article.id != article_displayed.id">
+                                    <div v-if="article.game === article_displayed.game" v-on:click="redirect_to_article(article)" >
+                                        <div class="related_article white"> Related Articles</div>
+                                        <div v-if="article.game == 'league'">
+                                            <img src={{=URL('static', 'images', args="lol.png")}}>
+                                        </div>
+                                        <div v-if="article.game == 'csgo'" class="article_img ">
+                                            <img src={{=URL('static', 'images', args="lol.png")}} height="400" width="600">
+                                        </div>
+                                        <div v-if="article.game == 'smash'" class="article_img ">
+                                            <img src={{=URL('static', 'images', args="smash.png")}} height="400" width="600">
+                                        </div>
+                                        <div v-if="article.game == 'starcraft'" class="article_img ">
+                                            <img src={{=URL('static', 'images', args="starcraft.png")}} height="400" width="600">
+                                        </div>
+                                        <div v-if="article.game == 'streetfighter'" class="article_img ">
+                                            <img src={{=URL('static', 'images', args="streetfighter.png")}} height="400" width="600">
+                                        </div>
+                                        <div class="more_article_title "> ${article.title} </div>
+                                        <div class="more_article_content" id="demo"> ${article.content}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-
+     </div>
 </div>
 <script src="{{=URL('static', 'js/default_index.js')}}"></script>
