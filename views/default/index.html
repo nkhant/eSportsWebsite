@@ -29,64 +29,77 @@
 
 <div class="container_mod container">
 
-
         <div  class=" half_mod half ">
-
           <ul class=" btn_mod btn " v-for="article in articles">
+              <li id="width_mod" class="container" >
 
-
-              <li id="width_mod" class="container ">
-
-                <div class="reduce_quart quarter">
-                    <img class=" img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
-
+                  <div class="reduce_quart quarter" v-if="article.game == 'smash'">
+                    <img  src="{{=URL('static', 'images', args="smash.png")}}" />
                 </div>
 
-                <div class="threequarters">
+                  <div class="reduce_quart quarter" v-if="article.game == 'league'">
+                    <img  src="{{=URL('static', 'images', args="league.png")}}" />
+                </div>
 
-                    <div> Title: ${article.title} </div>
-                    <div> Author: ${article.author} </div>
-                    <div> Content: ${article.content} </div>
+                  <div class="reduce_quart quarter" v-if="article.game == 'starcraft'">
+                    <img  src="{{=URL('static', 'images', args="starcraft.png")}}" />
+                </div>
+
+                  <div class="reduce_quart quarter" v-if="article.game == 'streetfighter'">
+                    <img  src="{{=URL('static', 'images', args="streetfighter.png")}}" />
+                </div>
+
+                  <div class="reduce_quart quarter" v-if="article.game == 'csgo'">
+                    <img  src="{{=URL('static', 'images', args="csgo-icon.png")}}" />
+                </div>
+
+
+                <div class="three_margin threequarters">
+
+                    <div> <h6>${article.title}</h6> </div>
+                    <div> <span class="author_font">by ${article.author}</span> </div>
+                    <div class="content_margin"> <span class="content_font">${article.content}</span> </div>
                     <div> Game: ${article.game}</div>
                </div>
-
-
               </li>
-
-
           </ul>
-
         </div>
 
 
 
-        <div  class=" half_mod half ">
-
-
+        <div class=" half_mod half ">
           <ul class=" btn_mod btn " v-for="article in articles">
-
-
               <li id="width_mod" class="container ">
 
-                <div class="reduce_quart quarter">
-                    <img class=" img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
-
+                  <div class="reduce_quart quarter" v-if="article.game == 'smash'">
+                    <img  src="{{=URL('static', 'images', args="smash.png")}}" />
                 </div>
 
-                <div class="threequarters">
+                  <div class="reduce_quart quarter" v-if="article.game == 'league'">
+                    <img  src="{{=URL('static', 'images', args="league.png")}}" />
+                </div>
 
-                    <div> Title: ${article.title} </div>
-                    <div> Author: ${article.author} </div>
-                    <div> Content: ${article.content} </div>
+                  <div class="reduce_quart quarter" v-if="article.game == 'starcraft'">
+                    <img  src="{{=URL('static', 'images', args="starcraft.png")}}" />
+                </div>
+
+                  <div class="reduce_quart quarter" v-if="article.game == 'streetfighter'">
+                    <img  src="{{=URL('static', 'images', args="streetfighter.png")}}" />
+                </div>
+
+
+                  <div class="reduce_quart quarter" v-if="article.game == 'csgo'">
+                    <img  src="{{=URL('static', 'images', args="csgo-icon.png")}}" />
+                </div>
+
+                <div class="three_margin threequarters">
+                    <div> <h6>${article.title}</h6> </div>
+                    <div> <span class="author_font">by ${article.author}</span> </div>
+                    <div class="content_margin"> <span class="content_font">${article.content}</span> </div>
                     <div> Game: ${article.game}</div>
                </div>
-
-
               </li>
-
-
           </ul>
-
         </div>
 
 

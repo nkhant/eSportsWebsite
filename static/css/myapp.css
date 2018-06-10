@@ -185,12 +185,13 @@ div.more_article_content{
 
 .half_mod{
    padding: 0 20px 0 200px !important;
-    width: 55% !important;
+
     margin-right: -200px !important;
 }
 
 .btn_mod{
     display:block !important;
+    width:100%;
 }
 
 .reduce_quart{
@@ -199,4 +200,30 @@ div.more_article_content{
 
 .container_mod{
     margin-right: 150px !important;
+    margin-left: 150px !important;
+}
+.three_margin{
+    margin-left:90px !important;
+}
+
+
+.index_img_size{
+    width: 256px;
+    height: 256px;
+
+}
+
+.author_font{
+    font-size: 14px;
+
+}
+
+.content_font{
+    font-size: 12px;
+
+}
+
+.content_margin{
+    margin-right:-140px !important;
+    padding-top: 5px;
 }
