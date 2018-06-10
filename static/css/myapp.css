@@ -182,3 +182,21 @@ div.more_article_content{
     color: #FFFFFF;
     padding-bottom: 40px;
 }
+
+.half_mod{
+   padding: 0 20px 0 200px !important;
+    width: 55% !important;
+    margin-right: -200px !important;
+}
+
+.btn_mod{
+    display:block !important;
+}
+
+.reduce_quart{
+    margin-right: -100px !important;
+}
+
+.container_mod{
+    margin-right: 150px !important;
+}

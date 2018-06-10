@@ -47,6 +47,10 @@ var app = function() {
 
     };
 
+    self.test = function (content){
+        console.log(content)
+    };
+
 
     // Complete as needed.
     self.vue = new Vue({
@@ -67,6 +71,7 @@ var app = function() {
         methods: {
             add_article : self.add_article,
             get_articles : self.get_articles,
+            test : self.test,
         }
 
     });
