@@ -13,7 +13,6 @@
 }
 </style>
 
-       
 
  <div id="vue-div" class="display:none">
   <!-- Here goes your main HTML code. -->
@@ -24,13 +23,15 @@
         <button><a href="{{=URL('default', 'form')}}"> Create an article entry</a></button>
       </div>
       {{pass}}
-      
         <div class="image_container">
           <!-- Put here the code to display the images -->
           <ul  class="center_articles container">
 
+            <li  id="lol_background"class="display_article  btn lifted padded quarter ">
+
             <li v-for="article in articles" id="lol_background"class="display_article  btn lifted padded quarter ">
                 <a href="{{=URL('default', 'article')}}"> Article</a>
+
                 <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
                 <div> Title: ${article.title} </div>
                 <div> Author: ${article.author} </div>
