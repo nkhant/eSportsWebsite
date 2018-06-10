@@ -56,6 +56,14 @@ div.main_info{
 
 }
 
+footer.white{
+    background-color: #4cc0a5;
+}
+
+a.fa{
+    color: #FFFFFF;
+}
+
 .sidebar_pad{
     margin-top: 10px;
     display: inline-block;
@@ -106,12 +114,71 @@ div.main_info{
     padding-left:15% !important;
 }
 
-<<<<<<< HEAD
 footer.footer_layout {
-    box-shadow: 0 50vh 0 50vh white;
+    box-shadow: 0 50vh 0 50vh #4cc0a5;
 }
-=======
-.eSports_logo {
-  padding-right: 0px;
+
+.article_header{
+
+    background-color: white;
+    margin: 100px 0px 30px 100px;
+
+    /*float: left;*/
 }
->>>>>>> 03f94f05026b120871d24ca0773a51884edc11fc
+.article_title{
+    background-color: #4cc0a5;
+    float: left;
+    font-size: 37px;
+    padding-left: 5px;
+}
+.article_title_design{
+    height: 44px; /* 44px */
+    width: auto;
+    background-color: white;
+    margin: 0px;
+   /*float: right;*/
+}
+
+.article_date{
+    float: right;
+    background-color: white;
+    padding: 13px;
+}
+
+.article_body{
+    background-color: #5d6d68;
+    margin: 0px 0px 30px 100px;
+}
+
+.article_author{
+    padding-left: 20px;
+    color: #e0e0e0;
+}
+
+.article_content{
+    padding: 5px 20px 40px;
+    color: #FFFFFF;
+
+}
+
+.article_img{
+    padding: 10px 20px 15px
+}
+
+.related_article{
+    margin: 100px 0px 20px 0px;
+    font-size: 25px;
+    padding-left: 5px;
+
+}
+
+div.more_article_title{
+    font-size: 20px;
+    color: #FFFFFF;
+    padding-top: 5px;
+    padding-bottom: 3px;
+}
+div.more_article_content{
+    color: #FFFFFF;
+    padding-bottom: 40px;
+}
