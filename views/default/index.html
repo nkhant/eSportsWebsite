@@ -13,11 +13,10 @@
 }
 </style>
 
-        <h2>TEST</h2>
-
  <div id="vue-div" class="display:none">
   <!-- Here goes your main HTML code. -->
 
+<<<<<<< HEAD
 
     </div>
     <!--Button-->
@@ -26,13 +25,18 @@
       <button><a href="{{=URL('default', 'form')}}"> Create an article entry</a></button>
 
 
+=======
+>>>>>>> cfb64266d34cb866205f6afbac1b945cee160cc6
       <!--Only logged in users who are creators can create new articles-->
       {{if auth.user is not None:}}
       <div v-if="is_creator">
         <button><a href="{{=URL('default', 'form')}}"> Create an article entry</a></button>
       </div>
       {{pass}}
+<<<<<<< HEAD
 
+=======
+>>>>>>> cfb64266d34cb866205f6afbac1b945cee160cc6
         <div class="image_container">
           <!-- Put here the code to display the images -->
           <ul  class="center_articles container">
