@@ -55,6 +55,17 @@ def call():
 def league():
     return dict(message="Hello")
 
+def smash():
+    return dict(message="Hello")
+
+def starCraft():
+    return dict(message="Hello")
+
+
+def streetfighter():
+    return dict(message="Hello")
+
+
 def article():
     return dict(message="hello")
 
