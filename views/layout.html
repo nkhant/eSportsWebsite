@@ -27,27 +27,38 @@
       </div>
       {{pass}}
       <!--main top header (The entire top portion of the website)-->
-      <!--EDITS: moved logo to the side, removed padding-->
       <header class="white">
-        <div class="container middle max1000">
-          <div class="fill middle">
+        <div class="container">
+          <div class="fill">
             <div class="burger accordion">
 
               <!--eSports logo positioning-->
                 <h3 class="left">
                   <a href="{{=URL('default', 'index')}}">
-                    <img style="max-width: 25%" class="logo" src="{{=URL('static', 'images', args="OPeSports_Logo.png")}}"/>
-                    <img style="max-width: 30%" class="logo" src="{{=URL('static', 'images', args="top_bar_pattern.png")}}"/>
+
+                    <!--<div class = "eSports_logo">-->
+                      <img style="max-width: 15%" class="logo padded" src="{{=URL('static', 'images', args="OPeSports_Logo.png")}}"/>
+                        <!--</div>-->
+                  <!--<div class = "top_header">-->
+                    <img style="max-width: 35%" class="logo" src="{{=URL('static', 'images', args="top_bar_pattern.png")}}"/>
+                  <!--</div>-->
                   </a>
+
+                  <ul class="btn olive rounded menu right">
+                    <li>
+                      {{=auth.navbar(mode='dropdown')}}
+                    </li>
+                  </ul>
+
                 </h3>
 
               <!--top bar design positioning-->
 
-              <ul class="btn olive rounded menu right">
+              <!-- <ul class="btn olive rounded menu right">
                 <li>
                   {{=auth.navbar(mode='dropdown')}}
                 </li>
-              </ul>
+              </ul> -->
          </div>
           </div>
         </div>
