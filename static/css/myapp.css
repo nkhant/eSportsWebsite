@@ -169,6 +169,7 @@ footer.footer_layout {
     margin: 100px 0px 20px 0px;
     font-size: 25px;
     padding-left: 5px;
+    display:inline-block;
 
 }
 
@@ -183,6 +184,7 @@ div.more_article_content{
     padding-bottom: 40px;
 }
 
+<<<<<<< HEAD
 h2.dashboard_center{
     text-align: center;
 }
@@ -243,3 +245,5 @@ h2.dashboard_center{
     margin-right:-140px !important;
     padding-top: 5px;
 }
+=======
+>>>>>>> 7196d4da26eb6ce3f8b3bf97b9b9634b5e85d8e4
