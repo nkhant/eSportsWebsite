@@ -2,40 +2,47 @@
 {{extend 'layout.html'}}
 
 {{block head}}
-{{end}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
 
-<form action="action_page.php" style="border:1px solid #ccc">
+
+
+<form  id="vue-div" style="border:1px solid #ccc">
   <div class="container">
     <h1>Add an article</h1>
     <p>This form will allow you to upload an article onto the website.</p>
     <hr>
 
     <label for="title"><b>Title</b></label>
-    <input type="text" placeholder="Enter Title" name="title" required>
+    <input type="text"  v-model="title_holder" placeholder="Enter Title" name="title" required>
 
     <label for="author"><b>Author</b></label>
-    <input type="text" placeholder="Enter Author" name="author" required>
+    <input type="text" v-model="author_holder" placeholder="Enter Author" name="author" required>
 
     <label for="content"><b>Article</b></label>
-    <input type="text" placeholder="Your content here" name="content" required>
+    <input type="text" v-model="content_holder" placeholder="Your content here" name="content" required>
 
-    <label for="date"><b>Created On</b></label>
-    <input type="date" placeholder="Created On" name="date" required>
+
 
     <label for="game"><b>Related Game</b></label>
-      <input type="radio" name="game" value="csgo">CS:GO<br>
-      <input type="radio" name="game" value="league">League of Legends<br>
-      <input type="radio" name="game" value="smash">Smash<br>
-      <input type="radio" name="game" value="starcraft">Starcraft<br>
-      <input type="radio" name="game" value="streetfighter">Street Fighter<br>
+      <input type="radio" name="game" value="csgo" v-model="game_holder">CS:GO<br>
+      <input type="radio" name="game" value="league" v-model="game_holder">League of Legends<br>
+      <input type="radio" name="game" value="smash" v-model="game_holder" >Smash<br>
+      <input type="radio" name="game" value="starcraft" v-model="game_holder">Starcraft<br>
+      <input type="radio" name="game" value="streetfighter" v-model="game_holder" >Street Fighter<br>
     </label>
 
     <div class="clearfix">
+<<<<<<< HEAD
       <button type="submit" class="signupbtn">Submit</button>
       <button type="button" class="cancelbtn">Cancel</button>
+=======
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn" v-on:click="add_article()" >Submit</button>
+>>>>>>> c8b00683b70d5f8549de822f4e534657b0623a3d
     </div>
   </div>
 </form>
+
 
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -108,3 +115,7 @@ button:hover {
     }
 }
 </style>
+
+<script src="{{=URL('static', 'js/default_index.js')}}"></script>
+
+

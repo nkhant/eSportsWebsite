@@ -6,12 +6,40 @@ var app = function() {
 
     Vue.config.silent = false; // show all warnings
 
-    // Extends an array
-    self.extend = function(a, b) {
-        for (var i = 0; i < b.length; i++) {
-            a.push(b[i]);
-        }
+    // Enumerates an array.
+    var enumerate = function(v) { var k=0; return v.map(function(e) {e._idx = k++;});};
+
+
+
+    self.get_articles = function () {
+        $.getJSON(get_articles_url,
+
+            function (data) {
+                self.vue.articles = data.articles;
+                self.vue.logged_in = data.logged_in;
+                enumerate(self.vue.articles);
+            });
+        };
+
+     self.add_article = function () {
+        // The submit button to add an article has been added.
+        $.post(add_article_url,
+            {
+                title : self.vue.title_holder,
+                author : self.vue.author_holder,
+                content: self.vue.content_holder,
+                game : self.vue.game_holder,
+
+            },
+            function (data) {
+                // $.web2py.enableElement($("#add_memo_submit"));
+                self.vue.articles.unshift(data.article);
+                enumerate(self.vue.articles);
+                self.get_articles();
+            });
+
     };
+
 
     // Complete as needed.
     self.vue = new Vue({
@@ -19,13 +47,24 @@ var app = function() {
         delimiters: ['${', '}'],
         unsafeDelimiters: ['!{', '}'],
         data: {
+            logged_in: null,
+            articles : [],
+            title_holder: null,
+            author_holder: null,
+            content_holder: null,
+            created_on_holder: null,
+            game_holder: null,
+
         },
         methods: {
+            add_article : self.add_article,
+            get_articles : self.get_articles,
         }
 
     });
 
-
+    self.get_articles();
+    $("#vue-div").show();
     return self;
 };
 
