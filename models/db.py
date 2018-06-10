@@ -65,8 +65,19 @@ auth = Auth(db, host_names=myconf.get('host.names'))
 service = Service()
 plugins = PluginManager()
 
+# Extra fields for managing creator and reader accounts
+# Creators are users who can add new articles onto our news site,
+# Readers are users who can only can save favorite articles to read later on
+auth.settings.extra_fields['auth_user'] = [
+    Field('user_type', 'text', default=False, requires=IS_IN_SET(['Creator', 'Reader']), widget=SQLFORM.widgets.radio.widget, label='Select Your Account Type:')
+]
+
 # create all tables needed by auth if not custom tables
 auth.define_tables(username=False, signature=False)
+
+# The webpage to to redirect after login
+auth.navbar(referrer_actions=None)
+auth.settings.login_next = URL('user/profile') 
 
 # configure email
 mail = auth.settings.mailer

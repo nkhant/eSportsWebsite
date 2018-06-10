@@ -1,26 +1,39 @@
 {{extend 'layout.html'}}
 
 {{block head}}
- <script src="{{=URL('static', 'js/vue.js')}}"></script>
-{{end}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
 
+{{end}}
 
  <style>
 #lol_background {
     background-image: url('{{=URL('static', 'images', args="loledit.png")}}');
     background-size: contain;
+
 }
 </style>
+
+        <h2>TEST</h2>
 
  <div id="vue-div" class="display:none">
   <!-- Here goes your main HTML code. -->
 
+<<<<<<< HEAD
     </div>
     <!--Button-->
   <!--  <button><a href="{{=URL('default', 'form')}}">Create an article entry</a></button> -->
 
       <button><a href="{{=URL('default', 'form')}}"> Create an article entry</a></button>
 
+=======
+      <!--Only logged in users who are creators can create new articles-->
+      {{if auth.user is not None:}}
+      <div v-if="is_creator">
+        <button><a href="{{=URL('default', 'form')}}"> Create an article entry</a></button>
+      </div>
+      {{pass}}
+      
+>>>>>>> 488fcab263627c6372fc96616a9c68788cd5b24d
         <div class="image_container">
           <!-- Put here the code to display the images -->
           <ul  class="center_articles container">
@@ -39,7 +52,6 @@
 
           </ul>
         </div>
-
 
 </div>
 <script src="{{=URL('static', 'js/default_index.js')}}"></script>

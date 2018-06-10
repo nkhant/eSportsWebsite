@@ -1,7 +1,21 @@
 {{extend 'layout.html'}}
+{{block head}}
+{{end}}
 
-<div class="StarCraft_Main">
+<style>
+#lol_background {
+    background-image: url('{{=URL('static', 'images', args="lol-backdrop.png")}}');
+    background-size: contain;
+}
+</style>
 
 
 
-</div>
+    <div class="full_div" id="lol_background">
+        <div class="tester white half content_pad_left_more">
+            <div>Test</div>
+            <div>test</div>
+        </div>
+
+    </div>
+

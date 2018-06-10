@@ -106,6 +106,12 @@ div.main_info{
     padding-left:15% !important;
 }
 
+<<<<<<< HEAD
 .eSports_logo {
   padding-right: 0px;
 }
+=======
+footer.footer_layout {
+    box-shadow: 0 50vh 0 50vh white;
+}
+>>>>>>> 488fcab263627c6372fc96616a9c68788cd5b24d
