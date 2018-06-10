@@ -4,16 +4,8 @@
 <script src="{{=URL('static', 'js/vue.js')}}"></script>
 
 {{end}}
-
- <style>
-#lol_background {
-    background-image: url('{{=URL('static', 'images', args="loledit.png")}}');
-    background-size: contain;
-
-}
-</style>
-
- <div id="vue-div" class="display:none">
+<div class="container">
+  <div id="vue-div" class="display:none">
   <!-- Here goes your main HTML code. -->
 
       <!--Only logged in users who are creators can create new articles-->
@@ -22,24 +14,25 @@
         <button><a href="{{=URL('default', 'form')}}"> Create an article entry</a></button>
       </div>
       {{pass}}
+
         <div class="image_container">
           <!-- Put here the code to display the images -->
           <ul  class="center_articles container">
 
-            <li  id="lol_background"class="display_article  btn lifted padded quarter ">
-
-            <li v-for="article in articles" id="lol_background"class="display_article  btn lifted padded quarter ">
-                <a href="{{=URL('default', 'article')}}"> Article</a>
-
-                <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
-                <div> Title: ${article.title} </div>
-                <div> Author: ${article.author} </div>
-                <div> Content: ${article.content} </div>
-                <div> Game: ${article.game}</div>
+            <li v-for="article in articles" class="display_article  btn lifted padded quarter">
+                <a href="{{=URL('default', 'article')}}">
+                  <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
+                  <!--Call add fav article inputing the article index in it-->
+                  <i v-on:click="add_fav_article(article.index)" id="favorite_button" class="fa fa-heart"></i>
+                  <div> Title: ${article.title} </div>
+                  <div> Author: ${article.author} </div>
+                  <div> Content: ${article.content} </div>
+                  <div> Game: ${article.game}</div>
+                </a>
             </li>
 
           </ul>
         </div>
-
+  </div>
 </div>
 <script src="{{=URL('static', 'js/default_index.js')}}"></script>

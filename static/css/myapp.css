@@ -105,7 +105,7 @@ a.fa{
 
 .display_article{
     margin-left: 20px !important;
-    background-color: turquoise !important;
+    background-color: #5d6d68 !important;
     color: black !important;
     font-size: 1em !important;
 }
@@ -181,4 +181,21 @@ div.more_article_title{
 div.more_article_content{
     color: #FFFFFF;
     padding-bottom: 40px;
+}
+
+h2.dashboard_center{
+    text-align: center;
+}
+
+#favorite_button{
+    color: rgba(255, 0, 0, 1.0);
+    font-size: 25px;
+}
+
+#favorite_button:hover { 
+    color: rgba(255, 100, 100, 1.0);
+}
+
+#favorite_button:active { 
+    color: rgba(255, 0, 0, 0.5);
 }
