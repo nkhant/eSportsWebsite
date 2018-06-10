@@ -4,10 +4,8 @@
 {{block head}}
 <script src="{{=URL('static', 'js/vue.js')}}"></script>
 
-
-
 <form  id="vue-div" style="border:1px solid #ccc">
-  <div class="container">
+  <div class="container padded">
     <h1>Add an article</h1>
     <p>This form will allow you to upload an article onto the website.</p>
     <hr>
@@ -21,8 +19,6 @@
     <label for="content"><b>Article</b></label>
     <input type="text" v-model="content_holder" placeholder="Your content here" name="content" required>
 
-
-
     <label for="game"><b>Related Game</b></label>
       <input type="radio" name="game" value="csgo" v-model="game_holder">CS:GO<br>
       <input type="radio" name="game" value="league" v-model="game_holder">League of Legends<br>
@@ -32,8 +28,10 @@
     </label>
 
     <div class="clearfix">
-      <button type="button" class="cancelbtn">Cancel</button>
+
       <button type="submit" class="signupbtn" v-on:click="add_article()" >Submit</button>
+      <button type="button" class="cancelbtn">Cancel</button>
+
     </div>
   </div>
 </form>
@@ -112,5 +110,3 @@ button:hover {
 </style>
 
 <script src="{{=URL('static', 'js/default_index.js')}}"></script>
-
-

@@ -18,32 +18,49 @@
     var add_article_url = "{{=URL('api', 'add_article', user_signature=True)}}";
 </script>
 
-
   <body class="silver">
       {{if response.flash:}}
       <div class="w2p_flash">
         {{=response.flash}}
       </div>
       {{pass}}
-      <header class="white padded">
-        <div class="container middle max900">
-          <div class="fill middle">
+      <!--main top header (The entire top portion of the website)-->
+      <header class="white">
+        <div class="container">
+          <div class="fill">
             <div class="burger accordion">
-                <h3 class="center">
+
+              <!--eSports logo positioning-->
+                <h3 class="left">
                   <a href="{{=URL('default', 'index')}}">
-                    <img style="max-width: 30%" class="logo" src="{{=URL('static', 'images', args="OPeSports_Logo.png")}}"/>
+
+                    <!--<div class = "eSports_logo">-->
+                      <img style="max-width: 15%" class="logo padded" src="{{=URL('static', 'images', args="OPeSports_Logo.png")}}"/>
+                        <!--</div>-->
+                  <!--<div class = "top_header">-->
+                    <img style="max-width: 35%" class="logo" src="{{=URL('static', 'images', args="top_bar_pattern.png")}}"/>
+                  <!--</div>-->
                   </a>
+
+                  <ul class="btn olive rounded menu right">
+                    <li>
+                      {{=auth.navbar(mode='dropdown')}}
+                    </li>
+                  </ul>
+
                 </h3>
 
+              <!--top bar design positioning-->
 
-              <ul class="btn olive rounded menu right">
+              <!-- <ul class="btn olive rounded menu right">
                 <li>
                   {{=auth.navbar(mode='dropdown')}}
                 </li>
-              </ul>
-            </div>
+              </ul> -->
+         </div>
           </div>
         </div>
+
         <div class="sidebar black">
             <ul >
 
