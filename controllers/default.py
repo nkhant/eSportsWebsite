@@ -71,3 +71,6 @@ def article():
 
 def form():
     return dict(message="This is a form")
+
+def reader_dashboard():
+    return dict(message="This the reader's dashboard")
