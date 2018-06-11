@@ -11,7 +11,7 @@
   background-size: contain;
 }
 #width_mod {
-  width:80%;
+  width:600px;
 }
 
 #lol_backgrounds {
@@ -31,8 +31,11 @@
     {{pass}}
 
     <div class="container_mod container">
-      <div class=" half_mod half ">
-      <h3>Most Recent</h3>
+        <div class=" half_mod1 half ">
+          <div class="index_header compressible">
+            <span class="article_title ">Latest Articles</span>
+            <img class="article_title_design " src={{=URL('static', 'images', args="header_pattern.png")}}>
+        </div>
         <ul class=" btn_mod btn " v-for="article in shorten_articles">
             <li id="width_mod" class="container">
 
@@ -63,6 +66,7 @@
 
                 <div>
                   <h6>${article.title}</h6>
+
                 </div>
 
                 <div>
@@ -76,9 +80,6 @@
                   </a>
                 </div>
 
-                <div>
-                  Game: ${article.game}
-                </div>
 
              </div>
 
@@ -86,8 +87,11 @@
         </ul>
       </div>
 
-      <div class=" half_mod half ">
-      <h3>Most Popular</h3>
+        <div class=" half_mod2 half ">
+          <div class="index_header compressible">
+            <span class="article_title ">Popular Articles </span>
+            <img class="article_title_design " src={{=URL('static', 'images', args="header_pattern.png")}}>
+        </div>
         <ul class=" btn_mod btn " v-for="article in shorten_articles">
             <li id="width_mod" class="container">
 
@@ -100,16 +104,18 @@
               </div>
 
               <div class="reduce_quart quarter" v-if="article.game == 'starcraft'">
-                <img  src="{{=URL('static', 'images', args="starcraft.png")}}" />
+                <img  src="{{=URL('static', 'images', args="starcraft.png")}}"/>
               </div>
 
               <div class="reduce_quart quarter" v-if="article.game == 'streetfighter'">
                 <img  src="{{=URL('static', 'images', args="streetfighter.png")}}" />
               </div>
 
+
               <div class="reduce_quart quarter" v-if="article.game == 'csgo'">
                 <img  src="{{=URL('static', 'images', args="csgo-icon.png")}}" />
               </div>
+
 
               <div class="three_margin threequarters">
                 <p>${article.like_counter}</p>
@@ -118,6 +124,8 @@
                 <div>
                   <h6>${article.title}</h6>
                 </div>
+
+
 
                 <div>
                   <span class="author_font">by ${article.author}</span>
@@ -130,9 +138,7 @@
                   </a>
                 </div>
 
-                <div>
-                  Game: ${article.game}
-                </div>
+
 
              </div>
 
@@ -172,7 +178,7 @@
                                     <img src={{=URL('static', 'images', args="streetfighter.png")}} height="400" width="600">
                                 </div>
                                 <div class="article_author">by ${article.author}</div>
-                                <div class="article_content ">${article.content}</div>
+                                <div class="article_content ">${article.description}</div>
                             </div>
                         </div>
                         <div class="more_articles quarter compressible">
@@ -198,7 +204,7 @@
                                             <img src={{=URL('static', 'images', args="streetfighter.png")}} height="400" width="600">
                                         </div>
                                         <div class="more_article_title "> ${article.title} </div>
-                                        <div class="more_article_content" id="demo"> ${article.content}</div>
+                                        <div class="more_article_content" id="demo"> ${article.description}</div>
                                     </div>
                                 </div>
                             </div>

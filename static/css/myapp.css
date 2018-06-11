@@ -104,14 +104,14 @@ a.fa{
 }
 
 .display_article{
-    margin-left: 20px !important;
-    background-color: #5d6d68 !important;
-    color: black !important;
     font-size: 1em !important;
+    width:400px;
+    margin-right: 20px !important;
 }
 
 .center_articles{
-    padding-left:15% !important;
+    padding-top: 10px;
+    padding-left:5% !important;
 }
 
 footer.footer_layout {
@@ -125,6 +125,15 @@ footer.footer_layout {
 
     /*float: left;*/
 }
+
+.index_header{
+
+    background-color: white;
+    margin: 0px 0px 10px 0px;
+
+    /*float: left;*/
+}
+
 .article_title{
     background-color: #4cc0a5;
     float: left;
@@ -197,14 +206,18 @@ h2.dashboard_center{
     color: rgba(255, 100, 100, 1.0);
 }
 
-#favorite_button:active { 
+#favorite_button:active {
     color: rgba(255, 0, 0, 0.5);
-
-.half_mod{
-   padding: 0 20px 0 200px !important;
-
-    margin-right: -200px !important;
 }
+
+.half_mod1 {
+   padding: 10px 25px 10px 50px !important;
+}
+.half_mod2 {
+   padding: 10px 50px 10px 25px !important;
+}
+
+
 
 .btn_mod{
     display:block !important;
@@ -216,8 +229,7 @@ h2.dashboard_center{
 }
 
 .container_mod{
-    margin-right: 150px !important;
-    margin-left: 150px !important;
+
 }
 .three_margin{
     margin-left:90px !important;
@@ -237,10 +249,16 @@ h2.dashboard_center{
 
 .content_font{
     font-size: 12px;
-
 }
 
 .content_margin{
-    margin-right:-140px !important;
+    font-size: 10px;
+    margin-right:140px !important;
     padding-top: 5px;
 }
+
+.btn_mod_gamepages{
+    display:inline-block!important;
+    width:50%;
+}
+

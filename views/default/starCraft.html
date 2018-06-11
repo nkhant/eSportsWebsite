@@ -15,18 +15,27 @@
 <div class="top_pad full_div container" id="sc_background">
   <!-- Here goes your main HTML code. -->
 
-          <div class="image_container">
+              <div class="image_container">
             <!-- Put here the code to display the images -->
             <ul  class="center_articles container">
 
-              <li v-for="article in articles" class="display_article  btn lifted padded quarter ">
-                  <a href="{{=URL('default', 'article')}}"> Article</a>
-                  <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
-                  <div> Title: ${article.title} </div>
-                  <div> Author: ${article.author} </div>
-                  <div> Content: ${article.content} </div>
-                  <div> Game: ${article.game}</div>
+               <span v-for="article in articles" >
+              <li v-if="article.game == 'starcraft' " class="display_article  btn lifted padded container">
+
+                  <div class="reduce_quart quarter">
+                    <img  src="{{=URL('static', 'images', args="starcraft.png")}}"  />
+                </div>
+
+                  <div class="three_margin threequarters">
+                    <i v-on:click="add_fav_article(article.index)" id="favorite_button" class="fa fa-heart"></i>
+                    <div> <h6>${article.title}</h6> </div>
+                    <div> <span class="author_font">by ${article.author}</span> </div>
+                    <div class="content_margin"> <span class="content_font">${article.description}</span> </div>
+                  </div>
+
+
               </li>
+               </span>
 
             </ul>
           </div>
