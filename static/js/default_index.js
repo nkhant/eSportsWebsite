@@ -24,6 +24,7 @@ var app = function() {
                 for(var i=0; i<self.vue.articles.length; i++){
                     self.vue.shorten_articles[i].content = self.vue.shorten_articles[i].content.substr(0,200);
                 }
+                console.log('hi');
                 console.log(self.vue.shorten_articles);
 
                 console.log(data.articles);
@@ -48,7 +49,7 @@ var app = function() {
     self.get_fav_articles = function () {
         $.getJSON(get_fav_articles_url,
             function (data) {
-                self.vue.fav_articles = data.articles;
+                self.vue.fav_articles = JSON.parse(JSON.stringify( data.articles ));
             });
     }
 
@@ -97,6 +98,23 @@ var app = function() {
         self.vue.article_displayed = article_displayed;
     }
 
+    self.startRotation = function() {
+        this.timer = setInterval(this.next, 3000);
+    }
+
+    self.stopRotation = function() {
+        clearTimeout(this.timer);
+        this.timer = null;
+    }
+
+    self.next = function() {
+        this.currentNumber += 1
+    }
+
+    self.prev = function() {
+        this.currentNumber -= 1
+    }
+
     // Complete as needed.
     self.vue = new Vue({
         el: "#vue-div",
@@ -116,7 +134,13 @@ var app = function() {
             game_holder: null,
             is_creator: false,
             page: 'main_page',
-            article_displayed: null
+            article_displayed: null,
+            images: ['http://www.macupdate.com/images/icons256/47210.png', 'http://nexustipsandtales.com/wp-content/uploads/2016/10/Starcraft-Icon.png', 'https://vignette.wikia.nocookie.net/ikonen-jonas-csgo/images/a/a1/Csgo-logo.png/revision/latest?cb=20151118200545', 'https://vignette.wikia.nocookie.net/streetfighter/images/3/3e/SF_logo.png/revision/latest?cb=20130310140248'],
+            currentNumber: 0,
+            timer: null
+        },
+        mounted: function () {
+            this.startRotation();
         },
         methods: {
             add_article : self.add_article,
@@ -124,7 +148,17 @@ var app = function() {
             add_fav_article : self.add_fav_article,
             get_fav_articles : self.get_fav_articles,
             test : self.test,
-            redirect_to_article: self.redirect_to_article
+            redirect_to_article: self.redirect_to_article,
+            startRotation: self.startRotation,
+            stopRotation: self.stopRotation,
+            next: self.next,
+            prev: self.prev
+        },
+        
+        computed: {
+            currentImage: function() {
+            return this.images[Math.abs(this.currentNumber) % this.images.length];
+          }
         }
 
     });

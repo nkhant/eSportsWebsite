@@ -21,7 +21,6 @@
     var get_submitted_articles_url = "{{=URL('api', 'get_submitted_articles')}}";
 </script>
   
-<div id="vue-div" >
   <body class="silver">
       {{if response.flash:}}
       <div class="w2p_flash">
@@ -57,16 +56,16 @@
                   <!--Only enable dashboard when user is logged in-->
                   {{if auth.user is not None:}}
                     <!--Toggle links depending on the user account type-->
-                    <div v-if="is_creator">
-                      <li class="spaced">
-                        <a href="{{=URL('default', 'creator_dashboard')}}"> Dashboard</a>
-                      </li>                  
-                    </div>
-                    <div v-if="!is_creator"> 
-                      <li class="spaced">
-                        <a href="{{=URL('default', 'reader_dashboard')}}"> Dashboard</a>
-                      </li>
-                    </div>
+                      {{if (auth.user.user_type == 'Creator'):}}
+                          <li class="spaced">
+                            <a href="{{=URL('default', 'creator_dashboard')}}"> Dashboard</a>
+                          </li>                     
+                      {{pass}}
+                        {{if (auth.user.user_type == 'Reader'):}}                   
+                          <li class="spaced">
+                            <a href="{{=URL('default', 'reader_dashboard')}}"> Dashboard</a>
+                          </li>
+                      {{pass}}
                   {{pass}}
 
                   <li class="spaced"> <img class="img_size" src="{{=URL('static', 'images', args="lol.png")}}" />
@@ -118,10 +117,11 @@
             <a class="support" href="#">Support Us</a> |
             <a class="contact" href="#">Contact Us</a> |
             <a class="info" href="#">Info</a>
-        </div>
+          </div>
+          </div>
       </footer>
   </body>
-</div>
+
   <script src="{{=URL('static','js/marked.min.js')}}"></script>
   <script src="{{=URL('static','js/vue.min.js')}}"></script>
 
