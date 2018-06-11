@@ -15,8 +15,9 @@
 }
 
 #lol_backgrounds {
-    background-image: url('{{=URL('static', 'images', args="lol-backdrop.png")}}');
-    background-size: contain;
+    background-image: url('{{=URL('static', 'images', args="lol-backdrop.png")}}') !important;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 </style>
 
@@ -32,8 +33,8 @@
     <div class="container_mod container">
       <div class=" half_mod half ">
       <h3>Most Recent</h3>
-        <ul class=" btn_mod btn " v-for="article in articles">
-            <li id="width_mod" class="container" v-on:click="redirect_to_article(article)">
+        <ul class=" btn_mod btn " v-for="article in shorten_articles">
+            <li id="width_mod" class="container">
 
               <div class="reduce_quart quarter" v-if="article.game == 'smash'">
                 <img  src="{{=URL('static', 'images', args="smash.png")}}" />
@@ -70,6 +71,9 @@
 
                 <div class="content_margin">
                   <span class="content_font">${article.content}</span>
+                  <a>
+                    <span class="read_more" v-on:click="redirect_to_article(article)">Read More</span>
+                  </a>
                 </div>
 
                 <div>
@@ -84,8 +88,8 @@
 
       <div class=" half_mod half ">
       <h3>Most Popular</h3>
-        <ul class=" btn_mod btn " v-for="article in articles">
-            <li id="width_mod" class="container ">
+        <ul class=" btn_mod btn " v-for="article in shorten_articles">
+            <li id="width_mod" class="container">
 
               <div class="reduce_quart quarter" v-if="article.game == 'smash'">
                 <img  src="{{=URL('static', 'images', args="smash.png")}}" />
@@ -121,6 +125,9 @@
 
                 <div class="content_margin">
                   <span class="content_font">${article.content}</span>
+                  <a>
+                    <span class="read_more" v-on:click="redirect_to_article(article)">Read More</span>
+                  </a>
                 </div>
 
                 <div>
@@ -136,9 +143,9 @@
 
  </div>
 
-     <div v-if="page === 'display_article'">
+      <div v-if="page === 'display_article'">
 
-        <div class="full_div " id="lol_backgrounds">
+        <div class="full_div" id="lol_backgrounds">
             <div v-for="article in articles">
                 <div v-if="article.id == article_displayed.id">
                     <div class="article_build container">
@@ -169,10 +176,12 @@
                             </div>
                         </div>
                         <div class="more_articles quarter compressible">
-                            <div v-for="article in articles" >
+                            <div class="related_article white"> Related Articles</div>
+                            <div v-for="article in shorten_articles" >
+                                <!--Show every article of the same game being viewed except the one viewed-->
                                 <div v-if="article.id != article_displayed.id">
                                     <div v-if="article.game === article_displayed.game" v-on:click="redirect_to_article(article)" >
-                                        <div class="related_article white"> Related Articles</div>
+                                       
                                         <div v-if="article.game == 'league'">
                                             <img src={{=URL('static', 'images', args="lol.png")}}>
                                         </div>
@@ -197,8 +206,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-      </div>
+          </div> <!--end background-->
+        </div> <!--end v if page article-->
 
 <script src="{{=URL('static', 'js/default_index.js')}}"></script>

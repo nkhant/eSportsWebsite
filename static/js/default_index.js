@@ -16,7 +16,15 @@ var app = function() {
             function (data) {
                 self.vue.articles = data.articles;
                 self.vue.logged_in = data.logged_in;
+                self.vue.shorten_articles = JSON.parse(JSON.stringify( data.articles ));
                 enumerate(self.vue.articles);
+                console.log(self.vue.articles);
+
+                // Cuts off the conent of each article in articles array to 200 characters
+                for(var i=0; i<self.vue.articles.length; i++){
+                    self.vue.shorten_articles[i].content = self.vue.shorten_articles[i].content.substr(0,200);
+                }
+                console.log(self.vue.shorten_articles);
 
                 console.log(data.articles);
 
@@ -99,6 +107,7 @@ var app = function() {
             articles : [],
             fav_articles: [],
             submitted_articles: [],
+            shorten_articles: [],
             title_holder: null,
             author_holder: null,
             description_holder: null,
