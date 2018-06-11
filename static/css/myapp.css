@@ -244,6 +244,7 @@ h2.dashboard_center{
 }
 
 .content_margin{
+    font-size: 10px;
     margin-right:-140px !important;
     padding-top: 5px;
 }
