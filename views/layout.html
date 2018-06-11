@@ -35,31 +35,18 @@
               <!--eSports logo positioning-->
                 <h3 class="left">
                   <a href="{{=URL('default', 'index')}}">
-
-                    <!--<div class = "eSports_logo">-->
-                      <img style="max-width: 15%" class="logo padded" src="{{=URL('static', 'images', args="OPeSports_Logo.png")}}"/>
-                        <!--</div>-->
-                  <!--<div class = "top_header">-->
-                    <img style="max-width: 35%" class="logo" src="{{=URL('static', 'images', args="top_bar_pattern.png")}}"/>
-                  <!--</div>-->
+                    <img style="max-width: 15%" class="logo padded" src="{{=URL('static', 'images', args="OPeSports_Logo.png")}}"/>
+                    <img style="max-width: 30%" class="top_bar" src="{{=URL('static', 'images', args="top_bar_pattern.png")}}"/>
                   </a>
 
-                  <ul class="btn olive rounded menu right">
+                  <ul class="btn olive rounded menu">
                     <li>
                       {{=auth.navbar(mode='dropdown')}}
                     </li>
                   </ul>
 
                 </h3>
-
-              <!--top bar design positioning-->
-
-              <!-- <ul class="btn olive rounded menu right">
-                <li>
-                  {{=auth.navbar(mode='dropdown')}}
-                </li>
-              </ul> -->
-         </div>
+            </div>
           </div>
         </div>
 
@@ -104,16 +91,21 @@
         {{include}}
       </main>
 
-      <footer class="white footer_layout">
-        <div class="silver center padded social">
+      <footer class="teal footer_layout">
+        <div class="teal center padded social">
           <a class="fa fa-facebook" href="https://www.facebook.com/sharer/sharer.php?u={url}"></a>
           <a class="fa fa-twitter" href="https://twitter.com/home?status={url}"></a>
           <a class="fa fa-google" href="https://plus.google.com/share?url={url}"></a>
         </div>
+
         <div class="container padded max900">
-          <div class="fill">
+          <div class="fill center">
             Copyright @ 2016
           </div>
+          <div class = "bottom_tabs center">
+            <a class="support" href="#">Support Us</a> |
+            <a class="contact" href="#">Contact Us</a> |
+            <a class="info" href="#">Info</a>
         </div>
       </footer>
   </body>

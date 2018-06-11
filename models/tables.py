@@ -18,6 +18,7 @@ db.define_table('Articles',
                   Field('Title', 'text', default='null'),
                   Field('Author', 'text', default='null'),
                   Field('Article_Content', 'text', default='null'),
+                  Field('Article_Description', 'text', default='null'),
                   Field('Created_On', 'datetime', default=request.now),
                   Field('Game', 'text'),
                   Field('created_by', 'reference auth_user', default=auth.user_id)

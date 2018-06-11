@@ -19,6 +19,7 @@ def get_articles():
                 id = r.id,
                 title = r.Title,
                 author=r.Author,
+                description = r.Article_Description,
                 content = r.Article_Content,
                 created_on = r.Created_On,
                 game = r.Game,
@@ -29,7 +30,7 @@ def get_articles():
     return response.json(dict(
         articles=articles,
         logged_in=logged_in,
-        user_type=user_type 
+        user_type=user_type
     ))
 
 def get_fav_articles():
@@ -63,6 +64,7 @@ def add_article():
     t_id = db.Articles.insert(
         Title=request.vars.title,
         Author=request.vars.author,
+        Article_Description=request.vars.description,
         Article_Content=request.vars.content,
         Game=request.vars.game
     )
@@ -84,4 +86,3 @@ def add_fav_article():
     return response.json(dict(
         article=t
     ))
-

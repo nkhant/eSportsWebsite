@@ -197,8 +197,24 @@
                 </div>
             </div>
         </div>
+        <!-- Column 2 -->
+        <div class = "twothirds">
+          <ul v-for="article in articles" class="center_articles container padded">
 
-     </div>
+            <li id="lol_background"class="display_article btn lifted half">
+                <a href="{{=URL('default', 'article')}}"> Article</a>
+
+                <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
+                <div> Title: ${article.title} </div>
+                <div> Author: ${article.author} </div>
+                <div> Content: ${article.content} </div>
+                <div> Game: ${article.game}</div>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
 
 </div>
 

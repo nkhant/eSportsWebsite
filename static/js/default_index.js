@@ -39,8 +39,9 @@ var app = function() {
         // The submit button to add an article has been added.
         $.post(add_article_url,
             {
-                title: self.vue.title_holder,
-                author: self.vue.author_holder,
+                title : self.vue.title_holder,
+                author : self.vue.author_holder,
+                description: self.vue.description_holder,
                 content: self.vue.content_holder,
                 game: self.vue.game_holder
 
@@ -85,6 +86,7 @@ var app = function() {
             fav_articles: [],
             title_holder: null,
             author_holder: null,
+            description_holder: null,
             content_holder: null,
             created_on_holder: null,
             game_holder: null,
