@@ -125,6 +125,15 @@ footer.footer_layout {
 
     /*float: left;*/
 }
+
+.index_header{
+
+    background-color: white;
+    margin: 0px 0px 10px 0px;
+
+    /*float: left;*/
+}
+
 .article_title{
     background-color: #4cc0a5;
     float: left;
@@ -254,6 +263,9 @@ h2.dashboard_center{
     display:inline-block!important;
     width:50%;
 }
+
+
+
 
 
 

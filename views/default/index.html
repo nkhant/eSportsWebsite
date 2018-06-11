@@ -33,6 +33,11 @@
 
     <div class="container_mod container">
       <div class=" half_mod1 half ">
+         <div class="index_header compressible">
+            <span class="article_title ">Latest Articles</span>
+            <img class="article_title_design " src={{=URL('static', 'images', args="header_pattern.png")}}>
+
+        </div>
         <ul class=" btn_mod btn " v-for="article in articles">
             <li id="width_mod" class="container" v-on:click="redirect_to_article(article)">
 
@@ -82,6 +87,11 @@
       </div>
 
       <div class=" half_mod2 half ">
+        <div class="index_header compressible">
+            <span class="article_title ">Popular Articles </span>
+            <img class="article_title_design " src={{=URL('static', 'images', args="header_pattern.png")}}>
+
+        </div>
         <ul class=" btn_mod btn " v-for="article in articles">
             <li id="width_mod" class="container ">
 
