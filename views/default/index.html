@@ -5,106 +5,208 @@
 
 {{end}}
 
- <style>
+<style>
 #lol_background {
-    background-image: url('{{=URL('static', 'images', args="loledit.png")}}');
-    background-size: contain;
-
+  background-image: url('{{=URL('static', 'images', args="loledit.png")}}');
+  background-size: contain;
+}
+#width_mod {
+  width:600px;
 }
 
-#width_mod{
-
-    width:80%;
-     }
+#lol_backgrounds {
+    background-image: url('{{=URL('static', 'images', args="lol-backdrop.png")}}');
+    background-size: contain;
+}
 </style>
 
+<div id="vue-div" class="display:none">
 
- <div id="vue-div" class="display:none">
+  <!--Only logged in users who are creators can create new articles-->
+  <div v-if="page === 'main_page'">
 
-      {{if auth.user is not None:}}
-      <div v-if="is_creator">
-        <button><a href="{{=URL('default', 'form')}}"> Create an article entry</a></button>
+    {{if auth.user is not None:}}
+    <div v-if="is_creator">
+      <button><a href="{{=URL('default', 'form')}}"> Create an article entry</a></button>
+    </div>
+    {{pass}}
+
+    <div class="container_mod container">
+      <div class=" half_mod half ">
+        <ul class=" btn_mod btn " v-for="article in articles">
+            <li id="width_mod" class="container" v-on:click="redirect_to_article(article)">
+
+              <div class="reduce_quart quarter" v-if="article.game == 'smash'">
+                <img  src="{{=URL('static', 'images', args="smash.png")}}" />
+              </div>
+
+              <div class="reduce_quart quarter" v-if="article.game == 'league'">
+                <img  src="{{=URL('static', 'images', args="lol.png")}}" />
+              </div>
+
+              <div class="reduce_quart quarter" v-if="article.game == 'starcraft'">
+                <img  src="{{=URL('static', 'images', args="starcraft.png")}}" />
+              </div>
+
+              <div class="reduce_quart quarter" v-if="article.game == 'streetfighter'">
+                <img  src="{{=URL('static', 'images', args="streetfighter.png")}}" />
+              </div>
+
+              <div class="reduce_quart quarter" v-if="article.game == 'csgo'">
+                <img  src="{{=URL('static', 'images', args="csgo-icon.png")}}" />
+              </div>
+
+              <div class="three_margin threequarters">
+
+
+                <i v-on:click="add_fav_article(article.index)" id="favorite_button" class="fa fa-heart"></i>
+
+                <div>
+                  <h6>${article.title}</h6>
+
+                </div>
+
+                <div>
+                  <span class="author_font">by ${article.author}</span>
+                </div>
+
+                <div class="content_margin">
+                  <span class="content_font">${article.content}</span>
+                </div>
+
+                <div>
+                  Game: ${article.game}
+                </div>
+
+             </div>
+
+            </li>
+        </ul>
       </div>
-      {{pass}}
 
-<div class="container_mod container">
+      <div class=" half_mod half ">
+        <ul class=" btn_mod btn " v-for="article in articles">
+            <li id="width_mod" class="container ">
 
-        <div  class=" half_mod half ">
-          <ul class=" lifted btn_mod btn " v-for="article in articles">
-              <li id="width_mod" class="container" >
+              <div class="reduce_quart quarter" v-if="article.game == 'smash'">
+                <img  src="{{=URL('static', 'images', args="smash.png")}}" />
+              </div>
 
-                  <div class="reduce_quart quarter" v-if="article.game == 'smash'">
-                    <img  src="{{=URL('static', 'images', args="smash.png")}}" />
+              <div class="reduce_quart quarter" v-if="article.game == 'league'">
+                <img  src="{{=URL('static', 'images', args="lol.png")}}" />
+              </div>
+
+              <div class="reduce_quart quarter" v-if="article.game == 'starcraft'">
+                <img  src="{{=URL('static', 'images', args="starcraft.png")}}"/>
+              </div>
+
+              <div class="reduce_quart quarter" v-if="article.game == 'streetfighter'">
+                <img  src="{{=URL('static', 'images', args="streetfighter.png")}}" />
+              </div>
+
+
+              <div class="reduce_quart quarter" v-if="article.game == 'csgo'">
+                <img  src="{{=URL('static', 'images', args="csgo-icon.png")}}" />
+              </div>
+
+
+              <div class="three_margin threequarters">
+
+                <i v-on:click="add_fav_article(article.index)" id="favorite_button" class="fa fa-heart"></i>
+
+                <div>
+                  <h6>${article.title}</h6>
                 </div>
 
-                  <div class="reduce_quart quarter" v-if="article.game == 'league'">
-                    <img  src="{{=URL('static', 'images', args="lol.png")}}" />
+
+
+                <div>
+                  <span class="author_font">by ${article.author}</span>
                 </div>
 
-                  <div class="reduce_quart quarter" v-if="article.game == 'starcraft'">
-                    <img  src="{{=URL('static', 'images', args="starcraft.png")}}" />
+                <div class="content_margin">
+                  <span class="content_font">${article.content}</span>
                 </div>
 
-                  <div class="reduce_quart quarter" v-if="article.game == 'streetfighter'">
-                    <img  src="{{=URL('static', 'images', args="streetfighter.png")}}" />
+                <div>
+                  Game: ${article.game}
                 </div>
 
-                  <div class="reduce_quart quarter" v-if="article.game == 'csgo'">
-                    <img  src="{{=URL('static', 'images', args="csgo-icon.png")}}" />
+             </div>
+
+            </li>
+        </ul>
+      </div>
+    </div>
+
+ </div>
+
+     <div v-if="page === 'display_article'">
+
+        <div class="full_div " id="lol_backgrounds">
+            <div v-for="article in articles">
+                <div v-if="article.id == article_displayed.id">
+                    <div class="article_build container">
+                        <div class="article twothirds compressible">
+                            <div class="article_header compressible">
+                                <span class="article_title "> ${article.title} </span>
+                                <img class="article_title_design " src={{=URL('static', 'images', args="header_pattern.png")}}>
+                                <span class="article_date "> ${article.created_on}</span>
+                            </div>
+                            <div class="article_body">
+                                <div v-if="article.game == 'league'" class="article_img ">
+                                    <img src={{=URL('static', 'images', args="lol.png")}} height="400" width="600">
+                                </div>
+                                <div v-if="article.game == 'csgo'" class="article_img ">
+                                    <img src={{=URL('static', 'images', args="lol.png")}} height="400" width="600">
+                                </div>
+                                <div v-if="article.game == 'smash'" class="article_img ">
+                                    <img src={{=URL('static', 'images', args="smash.png")}} height="400" width="600">
+                                </div>
+                                <div v-if="article.game == 'starcraft'" class="article_img ">
+                                    <img src={{=URL('static', 'images', args="starcraft.png")}} height="400" width="600">
+                                </div>
+                                <div v-if="article.game == 'streetfighter'" class="article_img ">
+                                    <img src={{=URL('static', 'images', args="streetfighter.png")}} height="400" width="600">
+                                </div>
+                                <div class="article_author">by ${article.author}</div>
+                                <div class="article_content ">${article.content}</div>
+                            </div>
+                        </div>
+                        <div class="more_articles quarter compressible">
+                            <div v-for="article in articles" >
+                                <div v-if="article.id != article_displayed.id">
+                                    <div v-if="article.game === article_displayed.game" v-on:click="redirect_to_article(article)" >
+                                        <div class="related_article white"> Related Articles</div>
+                                        <div v-if="article.game == 'league'">
+                                            <img src={{=URL('static', 'images', args="lol.png")}}>
+                                        </div>
+                                        <div v-if="article.game == 'csgo'" class="article_img ">
+                                            <img src={{=URL('static', 'images', args="lol.png")}} height="400" width="600">
+                                        </div>
+                                        <div v-if="article.game == 'smash'" class="article_img ">
+                                            <img src={{=URL('static', 'images', args="smash.png")}} height="400" width="600">
+                                        </div>
+                                        <div v-if="article.game == 'starcraft'" class="article_img ">
+                                            <img src={{=URL('static', 'images', args="starcraft.png")}} height="400" width="600">
+                                        </div>
+                                        <div v-if="article.game == 'streetfighter'" class="article_img ">
+                                            <img src={{=URL('static', 'images', args="streetfighter.png")}} height="400" width="600">
+                                        </div>
+                                        <div class="more_article_title "> ${article.title} </div>
+                                        <div class="more_article_content" id="demo"> ${article.content}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-
-                <div class="three_margin threequarters">
-
-                    <div> <h6>${article.title}</h6> </div>
-                    <div> <span class="author_font">by ${article.author}</span> </div>
-                    <div class="content_margin"> <span class="content_font">${article.content}</span> </div>
-                    <div> Game: ${article.game}</div>
-               </div>
-              </li>
-          </ul>
+            </div>
         </div>
 
 
-
-        <div class=" half_mod half ">
-          <ul class=" lifted btn_mod btn " v-for="article in articles">
-              <li id="width_mod" class="container ">
-
-                  <div class="reduce_quart quarter" v-if="article.game == 'smash'">
-                    <img  src="{{=URL('static', 'images', args="smash.png")}}" />
-                </div>
-
-                  <div class="reduce_quart quarter" v-if="article.game == 'league'">
-                    <img  src="{{=URL('static', 'images', args="lol.png")}}" />
-                </div>
-
-                  <div class="reduce_quart quarter" v-if="article.game == 'starcraft'">
-                    <img  src="{{=URL('static', 'images', args="starcraft.png")}}" />
-                </div>
-
-                  <div class="reduce_quart quarter" v-if="article.game == 'streetfighter'">
-                    <img  src="{{=URL('static', 'images', args="streetfighter.png")}}" />
-                </div>
-
-
-                  <div class="reduce_quart quarter" v-if="article.game == 'csgo'">
-                    <img  src="{{=URL('static', 'images', args="csgo-icon.png")}}" />
-                </div>
-
-                <div class="three_margin threequarters">
-                    <div> <h6>${article.title}</h6> </div>
-                    <div> <span class="author_font">by ${article.author}</span> </div>
-                    <div class="content_margin"> <span class="content_font">${article.content}</span> </div>
-                    <div> Game: ${article.game}</div>
-               </div>
-              </li>
-          </ul>
-        </div>
-
-
+      </div>
 
 </div>
 
-</div>
 <script src="{{=URL('static', 'js/default_index.js')}}"></script>

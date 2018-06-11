@@ -104,9 +104,9 @@ a.fa{
 }
 
 .display_article{
-    margin-left: 50px !important;
-
     font-size: 1em !important;
+    width:400px;
+    margin-right: 20px !important;
 }
 
 .center_articles{
@@ -169,6 +169,7 @@ footer.footer_layout {
     margin: 100px 0px 20px 0px;
     font-size: 25px;
     padding-left: 5px;
+    display:inline-block;
 
 }
 
@@ -183,11 +184,27 @@ div.more_article_content{
     padding-bottom: 40px;
 }
 
-.half_mod{
-   padding: 0 20px 0 200px !important;
-
-    margin-right: -200px !important;
+h2.dashboard_center{
+    text-align: center;
 }
+
+#favorite_button{
+    color: rgba(255, 0, 0, 1.0);
+    font-size: 25px;
+}
+
+#favorite_button:hover { 
+    color: rgba(255, 100, 100, 1.0);
+}
+
+#favorite_button:active { 
+    color: rgba(255, 0, 0, 0.5);
+
+.half_mod {
+   padding: 0 20px 0 50px !important;
+}
+
+
 
 .btn_mod{
     display:block !important;
@@ -199,8 +216,7 @@ div.more_article_content{
 }
 
 .container_mod{
-    margin-right: 150px !important;
-    margin-left: 150px !important;
+
 }
 .three_margin{
     margin-left:90px !important;
@@ -228,7 +244,11 @@ div.more_article_content{
     padding-top: 5px;
 }
 
+
 .btn_mod_gamepages{
     display:inline-block!important;
     width:50%;
 }
+
+
+

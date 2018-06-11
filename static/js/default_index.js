@@ -28,17 +28,26 @@ var app = function() {
             });
     };
 
+    self.get_fav_articles = function () {
+        $.getJSON(get_fav_articles_url,
+            function (data) {
+                self.vue.fav_articles = data.articles;  
+            });
+    }
+
     self.add_article = function () {
         // The submit button to add an article has been added.
         $.post(add_article_url,
             {
                 title : self.vue.title_holder,
                 author : self.vue.author_holder,
+                description: self.vue.description_holder,
                 content: self.vue.content_holder,
-                game : self.vue.game_holder,
+                game: self.vue.game_holder
 
             },
             function (data) {
+                console.log(data.article);
                 // $.web2py.enableElement($("#add_memo_submit"));
                 self.vue.articles.unshift(data.article);
                 enumerate(self.vue.articles);
@@ -47,10 +56,24 @@ var app = function() {
 
     };
 
+    self.add_fav_article = function (index) {
+        $.post(add_fav_article_url,
+            {
+                index: index
+            },
+            function (data) {
+                self.get_fav_articles();
+            });
+    }
+
     self.test = function (content){
         console.log(content)
     };
 
+    self.redirect_to_article = function(article_displayed){
+        self.vue.page = 'display_article';
+        self.vue.article_displayed = article_displayed;
+    }
 
     // Complete as needed.
     self.vue = new Vue({
@@ -60,22 +83,29 @@ var app = function() {
         data: {
             logged_in: null,
             articles : [],
+            fav_articles: [],
             title_holder: null,
             author_holder: null,
+            description_holder: null,
             content_holder: null,
             created_on_holder: null,
             game_holder: null,
-            is_creator: false
-
+            is_creator: false,
+            page: 'main_page',
+            article_displayed: null
         },
         methods: {
             add_article : self.add_article,
             get_articles : self.get_articles,
+            add_fav_article : self.add_fav_article,
+            get_fav_articles : self.get_fav_articles,
             test : self.test,
+            redirect_to_article: self.redirect_to_article
         }
 
     });
 
+    self.get_fav_articles();
     self.get_articles();
     $("#vue-div").show();
     return self;
