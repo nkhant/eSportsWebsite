@@ -16,7 +16,14 @@ var app = function() {
             function (data) {
                 self.vue.articles = data.articles;
                 self.vue.logged_in = data.logged_in;
+                self.vue.shorten_articles = JSON.parse(JSON.stringify( data.articles ));
                 enumerate(self.vue.articles);
+                console.log(self.vue.articles);
+
+                for(var i=0; i<self.vue.articles.length; i++){
+                    self.vue.shorten_articles[i].content = self.vue.shorten_articles[i].content.substr(0,200);
+                }
+                console.log(self.vue.shorten_articles);
 
                 if (data.user_type == 'Reader') {
                     self.vue.is_creator = false;
@@ -84,6 +91,7 @@ var app = function() {
             logged_in: null,
             articles : [],
             fav_articles: [],
+            shorten_articles: [],
             title_holder: null,
             author_holder: null,
             description_holder: null,

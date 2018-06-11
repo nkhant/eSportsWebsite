@@ -33,7 +33,7 @@
 
     <div class="container_mod container">
       <div class=" half_mod half ">
-        <ul class=" btn_mod btn " v-for="article in articles">
+        <ul class=" btn_mod btn " v-for="article in shorten_articles">
             <li id="width_mod" class="container" v-on:click="redirect_to_article(article)">
 
               <div class="reduce_quart quarter" v-if="article.game == 'smash'">
@@ -83,7 +83,7 @@
       </div>
 
       <div class=" half_mod half ">
-        <ul class=" btn_mod btn " v-for="article in articles">
+        <ul class=" btn_mod btn " v-for="article in shorten_articles">
             <li id="width_mod" class="container ">
 
               <div class="reduce_quart quarter" v-if="article.game == 'smash'">
@@ -168,7 +168,7 @@
                             </div>
                         </div>
                         <div class="more_articles quarter compressible">
-                            <div v-for="article in articles" >
+                            <div v-for="article in shorten_articles" >
                                 <div v-if="article.id != article_displayed.id">
                                     <div v-if="article.game === article_displayed.game" v-on:click="redirect_to_article(article)" >
                                         <div class="related_article white"> Related Articles</div>
@@ -197,25 +197,7 @@
                 </div>
             </div>
         </div>
-        <!-- Column 2 -->
-        <div class = "twothirds">
-          <ul v-for="article in articles" class="center_articles container padded">
-
-            <li id="lol_background"class="display_article btn lifted half">
-                <a href="{{=URL('default', 'article')}}"> Article</a>
-
-                <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
-                <div> Title: ${article.title} </div>
-                <div> Author: ${article.author} </div>
-                <div> Content: ${article.content} </div>
-                <div> Game: ${article.game}</div>
-            </li>
-
-          </ul>
-        </div>
-
       </div>
-
 </div>
 
 <script src="{{=URL('static', 'js/default_index.js')}}"></script>
