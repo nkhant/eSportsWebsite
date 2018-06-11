@@ -18,6 +18,8 @@ var app = function() {
                 self.vue.logged_in = data.logged_in;
                 enumerate(self.vue.articles);
 
+                console.log(data.articles);
+
                 if (data.user_type == 'Reader') {
                     self.vue.is_creator = false;
                 } else if (data.user_type == 'Creator') {
@@ -28,10 +30,17 @@ var app = function() {
             });
     };
 
+    self.get_submitted_articles = function () {
+        $.getJSON(get_submitted_articles_url,
+            function (data) {
+                self.vue.submitted_articles = data.articles;
+            });
+    }
+
     self.get_fav_articles = function () {
         $.getJSON(get_fav_articles_url,
             function (data) {
-                self.vue.fav_articles = data.articles;  
+                self.vue.fav_articles = data.articles;
             });
     }
 
@@ -62,8 +71,13 @@ var app = function() {
                 index: index
             },
             function (data) {
-                self.get_fav_articles();
             });
+            self.get_fav_articles();
+            self.get_fav_articles();
+            self.get_fav_articles();
+            self.get_submitted_articles();
+            self.get_submitted_articles();
+            self.get_submitted_articles();
     }
 
     self.test = function (content){
@@ -84,6 +98,7 @@ var app = function() {
             logged_in: null,
             articles : [],
             fav_articles: [],
+            submitted_articles: [],
             title_holder: null,
             author_holder: null,
             description_holder: null,
@@ -106,6 +121,7 @@ var app = function() {
     });
 
     self.get_fav_articles();
+    self.get_submitted_articles();
     self.get_articles();
     $("#vue-div").show();
     return self;

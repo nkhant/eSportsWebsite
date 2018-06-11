@@ -78,3 +78,6 @@ def form():
 
 def reader_dashboard():
     return dict(message="This the reader's dashboard")
+
+def creator_dashboard():
+    return dict(message="This the creator's dashboard")

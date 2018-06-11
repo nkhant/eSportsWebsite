@@ -21,12 +21,14 @@ db.define_table('Articles',
                   Field('Article_Description', 'text', default='null'),
                   Field('Created_On', 'datetime', default=request.now),
                   Field('Game', 'text'),
-                  Field('created_by', 'reference auth_user', default=auth.user_id)
+                  Field('created_by', 'reference auth_user', default=auth.user_id),
                )
 
 db.define_table('Fav_Articles',
                   Field('Article_id', 'integer', default=None),
-                  Field('favorited_by', 'integer', default=None)
+                  Field('favorited_by', 'integer', default=None),
+                  Field('like_counter', 'integer', default=0),
+                  Field('like_toggle', 'boolean', default=False)
                )
 
 # after defining tables, uncomment below to enable auditing

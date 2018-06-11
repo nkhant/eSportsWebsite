@@ -18,8 +18,10 @@
     var add_article_url = "{{=URL('api', 'add_article', user_signature=True)}}";
     var add_fav_article_url = "{{=URL('api', 'add_fav_article', user_signature=True)}}";
     var get_fav_articles_url = "{{=URL('api', 'get_fav_articles')}}";
+    var get_submitted_articles_url = "{{=URL('api', 'get_submitted_articles')}}";
 </script>
-
+  
+<div id="vue-div" >
   <body class="silver">
       {{if response.flash:}}
       <div class="w2p_flash">
@@ -50,41 +52,51 @@
           </div>
         </div>
 
-        <div class="sidebar black">
-            <ul >
+          <div class="sidebar black">
+              <ul >
+                  <!--Only enable dashboard when user is logged in-->
+                  {{if auth.user is not None:}}
+                    <!--Toggle links depending on the user account type-->
+                    <div v-if="is_creator">
+                      <li class="spaced">
+                        <a href="{{=URL('default', 'creator_dashboard')}}"> Dashboard</a>
+                      </li>                  
+                    </div>
+                    <div v-if="!is_creator"> 
+                      <li class="spaced">
+                        <a href="{{=URL('default', 'reader_dashboard')}}"> Dashboard</a>
+                      </li>
+                    </div>
+                  {{pass}}
 
-                <li class="spaced">
-                  <a href="{{=URL('default', 'reader_dashboard')}}"> Dashboard</a>
-                </li>
+                  <li class="spaced"> <img class="img_size" src="{{=URL('static', 'images', args="lol.png")}}" />
+                    <a href="{{=URL('default', 'league')}}"> League</a>
+                  </li>
 
-                <li class="spaced"> <img class="img_size" src="{{=URL('static', 'images', args="lol.png")}}" />
-                  <a href="{{=URL('default', 'league')}}"> League</a>
-                </li>
+                  <li class="spaced">
+                    <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
+                    <a href="{{=URL('default', 'starCraft')}}"> StarCraft</a>
+                  </li>
 
-                <li class="spaced">
-                  <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
-                  <a href="{{=URL('default', 'starCraft')}}"> StarCraft</a>
-                </li>
+                  <li class="spaced">
+                    <img class="img_size" src="{{=URL('static', 'images', args="smash.png")}}" />
+                    <a href="{{=URL('default', 'smash')}}"> Smash</a>
+                  </li>
 
-                <li class="spaced">
-                  <img class="img_size" src="{{=URL('static', 'images', args="smash.png")}}" />
-                  <a href="{{=URL('default', 'smash')}}"> Smash</a>
-                </li>
-
-                <li class="spaced">
-                  <img class="img_size" src="{{=URL('static', 'images', args="streetfighter.png")}}" />
-                  <a href="{{=URL('default', 'streetfighter')}}"> Street Fighter</a>
-                </li>
+                  <li class="spaced">
+                    <img class="img_size" src="{{=URL('static', 'images', args="streetfighter.png")}}" />
+                    <a href="{{=URL('default', 'streetfighter')}}"> Street Fighter</a>
+                  </li>
 
 
-                <li class="spaced">
-                  <img class="img_size" src="{{=URL('static', 'images', args="csgo-icon.png")}}" />
-                  <a href="{{=URL('default', 'csgo')}}"> CS:GO</a>
-                </li>
+                  <li class="spaced">
+                    <img class="img_size" src="{{=URL('static', 'images', args="csgo-icon.png")}}" />
+                    <a href="{{=URL('default', 'csgo')}}"> CS:GO</a>
+                  </li>
 
 
-            </ul>
-        </div>
+              </ul>
+          </div>
       </header>
 
       <main class="silver">
@@ -109,7 +121,7 @@
         </div>
       </footer>
   </body>
-
+</div>
   <script src="{{=URL('static','js/marked.min.js')}}"></script>
   <script src="{{=URL('static','js/vue.min.js')}}"></script>
 

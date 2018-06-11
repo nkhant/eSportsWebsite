@@ -8,7 +8,7 @@
   <!-- Here goes your main HTML code. -->
 
         <h2 class="dashboard_center">Dashboard</h2>
-
+        
         <!--Only logged in users who are creators can create new articles-->
         {{if auth.user is not None:}}
         <div v-if="is_creator">
@@ -16,8 +16,67 @@
         </div>
         {{pass}}
 
+    <div class="container_mod container">
+
+      <!--Left Column-->
       <div class=" half_mod half ">
-        <p>Your liked articles</p>
+        <h3>Your submitted articles</h3>
+        <ul class=" btn_mod btn " v-for="article in submitted_articles">
+            <li id="width_mod" class="container" v-on:click="redirect_to_article(article)">
+
+              <!--Display icon depending on the game the article is about-->
+              <div class="reduce_quart quarter" v-if="article.game == 'smash'">
+                <img  src="{{=URL('static', 'images', args="smash.png")}}" />
+              </div>
+
+              <div class="reduce_quart quarter" v-if="article.game == 'league'">
+                <img  src="{{=URL('static', 'images', args="lol.png")}}" />
+              </div>
+
+              <div class="reduce_quart quarter" v-if="article.game == 'starcraft'">
+                <img  src="{{=URL('static', 'images', args="starcraft.png")}}" />
+              </div>
+
+              <div class="reduce_quart quarter" v-if="article.game == 'streetfighter'">
+                <img  src="{{=URL('static', 'images', args="streetfighter.png")}}" />
+              </div>
+
+              <div class="reduce_quart quarter" v-if="article.game == 'csgo'">
+                <img  src="{{=URL('static', 'images', args="csgo-icon.png")}}" />
+              </div>
+
+              <div class="three_margin threequarters">
+
+                <p>${article.like_counter}</p>
+                <!--Like button-->
+                <i v-on:click="add_fav_article(article.index)" id="favorite_button" class="fa fa-heart"></i>
+
+                <!--Displays article contents-->
+                <div>
+                  <h6>${article.title}</h6>
+                </div>
+
+                <div>
+                  <span class="author_font">by ${article.author}</span>
+                </div>
+
+                <div class="content_margin">
+                  <span class="content_font">${article.content}</span>
+                </div>
+
+                <div>
+                  Game: ${article.game}
+                </div>
+
+             </div>
+
+            </li>
+        </ul>
+      </div>
+
+      <!--Right Column-->
+      <div class=" half_mod half ">
+        <h3>Your liked articles</h3>
         <ul class=" btn_mod btn " v-for="article in fav_articles">
             <li id="width_mod" class="container ">
 
@@ -70,6 +129,8 @@
             </li>
         </ul>
       </div>
+
+    </div>
 
 
 </div>
