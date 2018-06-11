@@ -80,7 +80,6 @@
                   </a>
                 </div>
 
-
              </div>
 
             </li>
@@ -187,7 +186,7 @@
                                 <!--Show every article of the same game being viewed except the one viewed-->
                                 <div v-if="article.id != article_displayed.id">
                                     <div v-if="article.game === article_displayed.game" v-on:click="redirect_to_article(article)" >
-                                       
+
                                         <div v-if="article.game == 'league'">
                                             <img src={{=URL('static', 'images', args="lol.png")}}>
                                         </div>
