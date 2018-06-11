@@ -32,7 +32,7 @@
     {{pass}}
 
     <div class="container_mod container">
-      <div class=" half_mod half ">
+      <div class=" half_mod1 half ">
         <ul class=" btn_mod btn " v-for="article in articles">
             <li id="width_mod" class="container" v-on:click="redirect_to_article(article)">
 
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="content_margin">
-                  <span class="content_font">${article.content}</span>
+                  <span class="content_font">${article.description}</span>
                 </div>
 
                 <div>
@@ -84,7 +84,7 @@
         </ul>
       </div>
 
-      <div class=" half_mod half ">
+      <div class=" half_mod2 half ">
         <ul class=" btn_mod btn " v-for="article in articles">
             <li id="width_mod" class="container ">
 
@@ -125,7 +125,7 @@
                 </div>
 
                 <div class="content_margin">
-                  <span class="content_font">${article.content}</span>
+                  <span class="content_font">${article.description}</span>
                 </div>
 
                 <div>
@@ -170,7 +170,7 @@
                                     <img src={{=URL('static', 'images', args="streetfighter.png")}} height="400" width="600">
                                 </div>
                                 <div class="article_author">by ${article.author}</div>
-                                <div class="article_content ">${article.content}</div>
+                                <div class="article_content ">${article.description}</div>
                             </div>
                         </div>
                         <div class="more_articles quarter compressible">
@@ -194,7 +194,7 @@
                                             <img src={{=URL('static', 'images', args="streetfighter.png")}} height="400" width="600">
                                         </div>
                                         <div class="more_article_title "> ${article.title} </div>
-                                        <div class="more_article_content" id="demo"> ${article.content}</div>
+                                        <div class="more_article_content" id="demo"> ${article.description}</div>
                                     </div>
                                 </div>
                             </div>

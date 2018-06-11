@@ -197,11 +197,15 @@ h2.dashboard_center{
     color: rgba(255, 100, 100, 1.0);
 }
 
-#favorite_button:active { 
+#favorite_button:active {
     color: rgba(255, 0, 0, 0.5);
+}
 
-.half_mod {
-   padding: 0 20px 0 50px !important;
+.half_mod1 {
+   padding: 10px 25px 10px 50px !important;
+}
+.half_mod2 {
+   padding: 10px 50px 10px 25px !important;
 }
 
 
