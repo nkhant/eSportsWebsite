@@ -25,7 +25,6 @@ var app = function() {
                 } else if (data.user_type == null) {
                     self.vue.is_creator = false;
                 }
-<<<<<<< HEAD
             });
     };
 
@@ -35,10 +34,6 @@ var app = function() {
                 self.vue.fav_articles = data.articles;  
             });
     }
-=======
-            });
-    };
->>>>>>> 7196d4da26eb6ce3f8b3bf97b9b9634b5e85d8e4
 
     self.add_article = function () {
         // The submit button to add an article has been added.
@@ -60,7 +55,6 @@ var app = function() {
 
     };
 
-<<<<<<< HEAD
     self.add_fav_article = function (index) {
         $.post(add_fav_article_url,
             {
@@ -74,13 +68,11 @@ var app = function() {
     self.test = function (content){
         console.log(content)
     };
-=======
+
     self.redirect_to_article = function(article_displayed){
         self.vue.page = 'display_article';
         self.vue.article_displayed = article_displayed;
     }
-
->>>>>>> 7196d4da26eb6ce3f8b3bf97b9b9634b5e85d8e4
 
     // Complete as needed.
     self.vue = new Vue({
@@ -96,25 +88,17 @@ var app = function() {
             content_holder: null,
             created_on_holder: null,
             game_holder: null,
-<<<<<<< HEAD
-            is_creator: false
-=======
             is_creator: false,
             page: 'main_page',
             article_displayed: null
->>>>>>> 7196d4da26eb6ce3f8b3bf97b9b9634b5e85d8e4
-
         },
         methods: {
             add_article : self.add_article,
             get_articles : self.get_articles,
-<<<<<<< HEAD
             add_fav_article : self.add_fav_article,
             get_fav_articles : self.get_fav_articles,
-            test : self.test
-=======
-            redirect_to_article: self.redirect_to_article,
->>>>>>> 7196d4da26eb6ce3f8b3bf97b9b9634b5e85d8e4
+            test : self.test,
+            redirect_to_article: self.redirect_to_article
         }
 
     });

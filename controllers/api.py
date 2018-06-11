@@ -29,11 +29,7 @@ def get_articles():
     return response.json(dict(
         articles=articles,
         logged_in=logged_in,
-<<<<<<< HEAD
         user_type=user_type 
-=======
-        user_type=user_type
->>>>>>> 7196d4da26eb6ce3f8b3bf97b9b9634b5e85d8e4
     ))
 
 def get_fav_articles():
@@ -72,15 +68,10 @@ def add_article():
     )
 
     t = db.Articles(t_id)
-<<<<<<< HEAD
-=======
-    print t
->>>>>>> 7196d4da26eb6ce3f8b3bf97b9b9634b5e85d8e4
     return response.json(dict(
         article=t
     ))
 
-<<<<<<< HEAD
 @auth.requires_signature()
 def add_fav_article():
     # Insert the article index and the current user id
@@ -88,11 +79,6 @@ def add_fav_article():
         Article_id=request.vars.index,
         favorited_by=auth.user.id
     )
-=======
-
-
-
->>>>>>> 7196d4da26eb6ce3f8b3bf97b9b9634b5e85d8e4
 
     t = db.Articles(t_id)
     return response.json(dict(
