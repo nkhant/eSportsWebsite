@@ -104,14 +104,14 @@ a.fa{
 }
 
 .display_article{
-    margin-left: 20px !important;
-    background-color: turquoise !important;
-    color: black !important;
+    margin-left: 50px !important;
+
     font-size: 1em !important;
 }
 
 .center_articles{
-    padding-left:15% !important;
+    padding-top: 10px;
+    padding-left:5% !important;
 }
 
 footer.footer_layout {
@@ -226,4 +226,9 @@ div.more_article_content{
 .content_margin{
     margin-right:-140px !important;
     padding-top: 5px;
+}
+
+.btn_mod_gamepages{
+    display:inline-block!important;
+    width:50%;
 }

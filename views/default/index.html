@@ -30,7 +30,7 @@
 <div class="container_mod container">
 
         <div  class=" half_mod half ">
-          <ul class=" btn_mod btn " v-for="article in articles">
+          <ul class=" lifted btn_mod btn " v-for="article in articles">
               <li id="width_mod" class="container" >
 
                   <div class="reduce_quart quarter" v-if="article.game == 'smash'">
@@ -38,7 +38,7 @@
                 </div>
 
                   <div class="reduce_quart quarter" v-if="article.game == 'league'">
-                    <img  src="{{=URL('static', 'images', args="league.png")}}" />
+                    <img  src="{{=URL('static', 'images', args="lol.png")}}" />
                 </div>
 
                   <div class="reduce_quart quarter" v-if="article.game == 'starcraft'">
@@ -68,7 +68,7 @@
 
 
         <div class=" half_mod half ">
-          <ul class=" btn_mod btn " v-for="article in articles">
+          <ul class=" lifted btn_mod btn " v-for="article in articles">
               <li id="width_mod" class="container ">
 
                   <div class="reduce_quart quarter" v-if="article.game == 'smash'">
@@ -76,7 +76,7 @@
                 </div>
 
                   <div class="reduce_quart quarter" v-if="article.game == 'league'">
-                    <img  src="{{=URL('static', 'images', args="league.png")}}" />
+                    <img  src="{{=URL('static', 'images', args="lol.png")}}" />
                 </div>
 
                   <div class="reduce_quart quarter" v-if="article.game == 'starcraft'">

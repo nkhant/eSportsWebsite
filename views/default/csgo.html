@@ -16,18 +16,27 @@
   <div id="vue-div" class="display:none">
   <!-- Here goes your main HTML code. -->
 
-          <div class="image_container">
+           <div class="image_container">
             <!-- Put here the code to display the images -->
             <ul  class="center_articles container">
 
-              <li v-for="article in articles" class="display_article  btn lifted padded quarter ">
-                  <a href="{{=URL('default', 'article')}}"> Article</a>
-                  <img class="img_size" src="{{=URL('static', 'images', args="starcraft.png")}}" />
-                  <div> Title: ${article.title} </div>
-                  <div> Author: ${article.author} </div>
-                  <div> Content: ${article.content} </div>
-                  <div> Game: ${article.game}</div>
+               <span v-for="article in articles" >
+              <li v-if="article.game == 'csgo' " class="display_article  btn lifted padded container">
+
+                  <div class="reduce_quart quarter">
+                    <img  src="{{=URL('static', 'images', args="csgo-icon.png")}}" style="width:300px;height:auto;" />
+                </div>
+
+                  <div class="three_margin threequarters">
+                    <div> <h6>${article.title}</h6> </div>
+                    <div> <span class="author_font">by ${article.author}</span> </div>
+                    <div class="content_margin"> <span class="content_font">${article.content}</span> </div>
+                    <div> Game: ${article.game}</div>
+                  </div>
+
+
               </li>
+               </span>
 
             </ul>
           </div>
