@@ -3,31 +3,33 @@
 
 {{block head}}
 <script src="{{=URL('static', 'js/vue.js')}}"></script>
-
-<form  id="vue-div" style="border:1px solid #ccc">
+<form id="vue-div" style="border:1px solid #ccc" background = "smash-bros-background.jpg">
   <div class="container padded">
-    <h1>Add an article</h1>
-    <p>This form will allow you to upload an article onto the website.</p>
+    <h3 class = "center">Add an article</h3>
+    <p class = "center">This form will allow you to upload an article onto the website.</p>
     <hr>
 
-    <label for="title"><b>Title</b></label>
-    <input type="text"  v-model="title_holder" placeholder="Enter Title" name="title" required>
+    <label for="title"><b>Title</b></label><br>
+    <input type="text" style = "width: 200px" v-model="title_holder" placeholder="Enter Title" name="title" required><br>
 
-    <label for="author"><b>Author</b></label>
-    <input type="text" v-model="author_holder" placeholder="Enter Author" name="author" required>
+    <label for="author"><b>Author</b></label><br>
+    <input type="text" style = "width: 200px" v-model="author_holder" placeholder="Enter Author" name="author" required><br>
 
-    <label for="content"><b>Article</b></label>
-    <input type="text" v-model="content_holder" placeholder="Your content here" name="content" required>
+    <label for="content"><b>Description (Limit 160 characters)</b></label><br>
+    <input type="text" maxlength="160" style = "width: 500px" v-model="description_holder" placeholder="Enter Description" name="content" required><br>
 
-    <label for="game"><b>Related Game</b></label>
-      <input type="radio" name="game" value="csgo" v-model="game_holder">CS:GO<br>
-      <input type="radio" name="game" value="league" v-model="game_holder">League of Legends<br>
-      <input type="radio" name="game" value="smash" v-model="game_holder" >Smash<br>
-      <input type="radio" name="game" value="starcraft" v-model="game_holder">Starcraft<br>
-      <input type="radio" name="game" value="streetfighter" v-model="game_holder" >Street Fighter<br>
+    <label for="articlebody"><b>Article</b></label><br>
+    <input type="textarea" v-model="content_holder" style = "width: 500px" placeholder="Your content here" name="content_body" required><br>
+
+    <label for="game"><b>Related Game</b></label><br>
+      <input type="radio" name="game" value="csgo" v-model="game_holder">CS:GO<img style = "width: 15%" class="icon" src="{{=URL('static', 'images', args="csgo.png")}}"/><br>
+      <input type="radio" name="game" value="league" v-model="game_holder">League of Legends<img style = "width: 5%" class="icon" src="{{=URL('static', 'images', args="lol-updated.png")}}"/><br>
+      <input type="radio" name="game" value="smash" v-model="game_holder" >Smash<img style = "width: 5%" class="icon" src="{{=URL('static', 'images', args="smash.png")}}"/><br>
+      <input type="radio" name="game" value="starcraft" v-model="game_holder">Starcraft<img style = "width: 5%" class="icon" src="{{=URL('static', 'images', args="starcraft.png")}}"/><br>
+      <input type="radio" name="game" value="streetfighter" v-model="game_holder" >Street Fighter<img style = "width: 5%" class="icon" src="{{=URL('static', 'images', args="streetfighter.png")}}"/><br>
     </label>
 
-    <div class="clearfix">
+    <div class="stuff">
 
       <button type="submit" class="signupbtn" v-on:click="add_article()" >Submit</button>
       <button type="button" class="cancelbtn">Cancel</button>
@@ -35,10 +37,9 @@
     </div>
   </div>
 </form>
-
-
+</body>
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+body {font-family: Century, Helvetica, sans-serif;}
 * {box-sizing: border-box}
 
 /* Full-width input fields */
@@ -85,7 +86,7 @@ button:hover {
 
 /* Float cancel and signup buttons and add an equal width */
 .cancelbtn, .signupbtn {
-  float: left;
+  /* float: left; */
   width: 50%;
 }
 
@@ -95,7 +96,7 @@ button:hover {
 }
 
 /* Clear floats */
-.clearfix::after {
+.stuff::after {
     content: "";
     clear: both;
     display: table;
