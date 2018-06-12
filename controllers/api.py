@@ -110,7 +110,7 @@ def add_article():
         Author=request.vars.author,
         Article_Description=request.vars.description,
         Article_Content=request.vars.content,
-        Created_By=auth.user,
+        created_by=auth.user,
         Game=request.vars.game
     )
 
